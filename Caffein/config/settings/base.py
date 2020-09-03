@@ -14,15 +14,6 @@ config_secret_base = json.loads(open(CONFIG_SECRET_BASE).read())
 SECRET_KEY = config_secret_base['django']['secret_key']
 
 
-# SECURITY WARNING: keep the secret key used in production secret!
-
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
