@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매미라능매미라능</title>
+    <link rel="stylesheet" href="{% static 'css/map.css' %}">
+
+</head>
+<body>
+    <div id="map">
+    </div>
+    <div class="center">
+        <button id="center_btn">눌러봐</button>
+    </div>
+    
+    <!--맵 api 스크립트-->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=55fb65a388899694dad0a54acca653e6&libraries=services"></script>
+    <!---->
+    <script src="{% static 'js/map.js' %}"></script>
+  
+</body>
+</html>
