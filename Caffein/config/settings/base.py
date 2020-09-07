@@ -25,6 +25,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Map',
     'user',
+    
+    # 가게 정보들을 보여주는 기능할꺼임
+    'store',
 ]
 
 MIDDLEWARE = [
