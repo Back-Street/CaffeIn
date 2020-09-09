@@ -8,6 +8,7 @@ from django.conf import settings
 
 class Store(models.Model):
     # host = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    name = models.CharField('이름',max_length=200)
     address = models.TextField('주소',blank=True)
     phone_number = models.CharField('전화번호', max_length=20,blank=True)
     sns = models.TextField('SNS',blank=True)
@@ -20,22 +21,37 @@ class Store(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name_plural = '카페'
+
+    def __str__(self):
+        return self.name
 class Menu(models.Model):
+    class Meta:
+        verbose_name_plural = '메뉴'
+
     store = models.ForeignKey(Store,on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 class Review(models.Model):
+    class Meta:
+        verbose_name_plural = '리뷰'
+
     store = models.ForeignKey(Store,on_delete=models.SET_NULL,null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 class StorePic(models.Model):
+    class Meta:
+        verbose_name_plural = '사진'
     store = models.ForeignKey(Store,on_delete=models.SET_NULL,null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 class Tag(models.Model):
+    class Meta:
+        verbose_name_plural = '태그들'
     #나중에 manyto many로 연결해주자
     # created_at = models.DateTimeField(auto_now_add=True)
     # updated_at = models.DateTimeField(auto_now=True)
