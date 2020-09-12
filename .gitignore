@@ -1,4 +1,14 @@
+*.log
+*.pot
+*.pyc
+
+
 .config_secret/
 __pycache__
 myvenv/
 db.sqlite3
+db.sqlite3-journal
+
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
