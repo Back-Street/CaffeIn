@@ -1,12 +1,243 @@
-body{
+html,body{
+    margin: 0;
+    padding: 0;
+    width:100%;
+    height: 100vh;
+    overflow:hidden;
+
+}
+.category-bar-wrapper::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+
+
+#nav {
+    width: 100%;
+    height: 8%;
+    justify-content: space-around;
+    align-items: center;
+    opacity: 0.8;
+    background-color: rgba(255, 255, 255, 0.911);
+    position: fixed;
+    display:flex;
+    flex-direction: row;
+    border-radius: 10px;
+    bottom: 0;
+    z-index: 99;
+    box-shadow: 5px 0px 10px 3px rgba(26, 25, 25, 0.801);
+}
+
+
+.list-btn-wrapper >i {
+    font-size: 33px;
+    color: black;
+}
+#main {
+    width:100%;
+    height:100vh;
+    z-index: 2;
+    position: absolute;
+    top:0;
+}
+#main > #map{
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    position: absolute;
+    top:0;
+}
+.search-bar-position{
+    position: relative;
+    z-index: 3;
+    width: 70%;
+    margin:0 auto;
+    height: 7%;
+    top: 10%;
+    align-items: center;
+}
+.search-bar-wrapper{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 40px;
+    background-color: white;
+    box-shadow: 5px 3px 10px 5px rgba(0,0,0,0.1);
+}
+#search-btn {
+    position: absolute;
+    top: 10%;
+    height: 90%;
+    right: 0.5%;
+}
+#search-bar {
+    border-style: none;
+    position: relative;
+    left: 3%;
+    width: 80%;
+    top: 15%;
+    height: 70%;
+    margin: 0 auto;
+    font-size: 90%;
+}
+#search-bar:focus{
+    outline:none;
+
+}
+.category-bar-position{
+    position: relative;
+    z-index: 3;
+    width: 70%;
+    margin:0 auto;
+    overflow: hidden;
+    height: 7%;
+    top: 13%;
+    
+}
+.category-bar-wrapper{
+    overflow: auto;
+    white-space: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: scroll;
+    height: 100%;
+    
+}
+.category-bar-wrapper a {
+    display: inline-block;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: solid black 0.5px;
+    background-color: rgba(255, 255, 255, 0.719);
+    text-align: center;
+    font-weight: 580;
+    padding: 5px;
+    text-decoration: none;
+    color:black;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.479);
+}
+.category-bar-wrapper a:hover{
+    background-color: turquoise;
+}
+.center-btn-wrapper{
+    position: fixed;
+    border-radius: 4px;
+    padding: 3px;
+    bottom: 18%;
+    right: 10%;
+    z-index: 3;
+    background-color: white;
+    box-shadow: 2px 3px 0px 2px rgba(0,0,0,0.4);
+    
+    
+}
+
+.center {
+    font-size: 30px;
+    color: rgb(73, 71, 71);
+    
+}
+
+.modal-wrap{
+    display: none;
+    width: 100%;
+    height: 30%;
+    min-height: 250px;
+    position: absolute;
+    z-index: 6;
+    bottom:0;
+    border-radius: 10px;
+    background-color: white;
+    
+    }
+.modal-size-btn{
+    position: absolute;
+    border-radius: 10px;
+    top: 0;
+    width: 100%;
+    height: 20px;
+    background-color: white;
+    text-align: center;
+    box-shadow: 3px 3px rgba(0,0,0,0.1);
+    z-index: 999;
+}
+.modal-close{
+    width: 26px;
+    height: 26px;
+    font-size: 30px;
+    position: absolute;
+    top: 20px;
+    color: hotpink;
+    z-index: 1;
+    right: 0;
+}
+.modal-content-wrap{
+    width: 100%;
+    position: absolute;
+    height: 96%;
+    bottom: 0;
+    overflow-y: scroll;
+    overflow:auto;
+    background-color: pink;
+    
+}
+.modal-content{
+    color:black;
+    background-color: white;
+    position: relative;
+    height: 245px;
+}
+/* 모달박스안 컨텐츠 */
+.store-image{
+    height: 50%;
+    width: 80%;
+    max-width: 600px;
+    top:30px;
+    position: relative;
+    left:10%;
+
+}
+.store-info{
+    width:80%;
+    left: 10%;
+    bottom:0;
+    position: absolute;
+    display:flex;
+}
+.store-profile{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: cornflowerblue;
+}
+.store-text{
+    flex-grow:1;
     margin:0;
-    padding:0;
+    left: 5px;
+    position: relative;
+}
+.store-text >h3{
+    position: absolute;
+    top:0;
+    margin:0;
 
 }
 
-#map{
+.modal-content-wrap::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+#modalup{
+    position:relative;
+    top:-50%;
+}
+.mapbtn{
+    width:50%;
+    height:50%;
+}
+
+.userbtn{
     width: 100%;
-    height: 100vh;
-    position: relative;
-    z-index: 0;
+    height: 100%;
 }
