@@ -167,12 +167,7 @@ center_btn.addEventListener("click",myloc);
     len_marker = markers.length;
 
 
-function closemodal(){
-    var modal = document.querySelector('.modal-wrap');
-    if(modal.style.display == 'block'){
-        alert('heelo');
-    };
-};
+
 window.onload=function(){
     function onClick(){
         var modal_noclick = document.querySelector('.modal-notclicked')
@@ -181,7 +176,7 @@ window.onload=function(){
         var navbar = document.querySelector('#nav');
         navbar.style.display = 'none';
         modal.style.display = 'block';
-        center_btn_move.style.bottom = '26%';     
+        center_btn_move.style.bottom = '34%';     
         console.log(event.currentTarget.id)
         {% for cafe in cafe_list %}
         if(event.currentTarget.id == 'daum.maps.Marker.Area:{{forloop.counter}}'){
