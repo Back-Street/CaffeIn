@@ -1,7 +1,8 @@
 .container {
   border: 1px solid black;
-  max-width: 768px;
+  max-width: 500px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 .regi_container {
   padding: 0 40px;
@@ -45,4 +46,92 @@
   background-color: #f37b65;
   padding: 10px 40px;
   border-radius: 10px;
+}
+
+.check_owner_wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.check_owner_wrapper > span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.check_owner_wrapper > button {
+  border: none;
+  background: none;
+  color: white;
+  background-color: #f37b65;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+.check_owner_wrapper_helptext {
+  color: #acacac;
+  font-size: 12px;
+}
+
+.regi_input_title {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.regi_input_box {
+  margin-top: 10px;
+  outline: none;
+  width: 100%;
+  border: 2px #d6d6d6 solid;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.regi_input_box::placeholder {
+  color: #d6d6d6;
+  font-weight: 500;
+}
+
+.privacy_title {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.privacy_content {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  color: #d6d6d6;
+  border: 2px #d6d6d6 solid;
+}
+
+.privacy_btn {
+  margin-top: 5px;
+  text-align: right;
+  color: #d6d6d6;
+}
+
+.privacy_btn > span {
+  margin-left: 10px;
+}
+
+.regi_submit_btn {
+  display: block;
+  margin: 0 auto;
+  background: none;
+  border: none;
+  margin-top: 25px;
+  padding: 15px 20px;
+  font-size: 20px;
+  color: white;
+  background-color: #f37b65;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 50px;
 }

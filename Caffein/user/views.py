@@ -5,3 +5,8 @@ from django.shortcuts import render
 def choice_registration(request):
     context=dict()
     return render(request, 'choice_regi.html', context)
+
+
+def registration(request):
+    context=dict()
+    return render(request, 'registration.html', context)
