@@ -1,0 +1,28 @@
+!{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}" />
+  </head>
+
+  <body>
+    <div class="container regi_container">
+      <div class="regi_logo">
+        BACK<br />
+        STREET
+      </div>
+      <div class="regi_page">REGISTER</div>
+
+      <div class="regi_card">
+        <p>회원 가입이 완료되었습니다</p>
+        <span
+          >사업자 등록증 인증 완료 후 <br />카페 페이지 수정이 가능합니다</span
+        >
+        <a href="{% url 'map' %}">메인으로 이동</a>
+      </div>
+    </div>
+  </body>
+</html>

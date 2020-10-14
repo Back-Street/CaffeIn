@@ -1,0 +1,85 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}" />
+  </head>
+
+  <body>
+    <div class="container regi_container">
+      <div class="regi_logo">
+        BACK<br />
+        STREET
+      </div>
+      <div class="regi_page">회원가입</div>
+
+      {% if type == "owner" %}
+      <div class="check_owner_wrapper">
+        <span>사업자 등록증</span>
+        <button>등록하기</button>
+      </div>
+      <p class="check_owner_wrapper_helptext">
+        * 사업자 등록증 등록 후 카페인 프로필 생성까지 최대 7시간이 소요됩니다
+      </p>
+      {% endif %}
+
+      <div class="regi_input_title">정보입력</div>
+      <input
+        class="regi_input_box"
+        placeholder="주소찾기"
+        type="text"
+        name=""
+        id=""
+      />
+      <input class="regi_input_box" placeholder="이름"" type="text" name=""
+      id="" />
+
+      <input
+        class="regi_input_box"
+        placeholder="연락처"
+        type="text"
+        name=""
+        id=""
+      />
+
+      <input
+        class="regi_input_box"
+        placeholder="아이디"
+        type="text"
+        name=""
+        id=""
+      />
+
+      <input
+        class="regi_input_box"
+        placeholder="비밀번호"
+        type="pw"
+        name=""
+        id=""
+      />
+
+      <input
+        class="regi_input_box"
+        placeholder="비밀번호 재확인"
+        type="pw"
+        name=""
+        id=""
+      />
+      <div class="privacy_title">개인 정보 수집·이용 동의</div>
+      <div class="privacy_content">
+        개인정보 수집 이용의 목적 : 어쩌구저쩌구 수집하려는 개인 정보의 항목 :
+        주소, 이름, 연락처 개인정보의 보유 및 이용 기간 : 회원 탈퇴시 즉시 파기
+      </div>
+      <div class="privacy_btn">
+        <span>동의함</span>
+        <span>동의하지 않음</span>
+      </div>
+      <a href="{% url 'complete_regi' %}">
+        <button class="regi_submit_btn" type="submit">회원 가입</button>
+      </a>
+    </div>
+  </body>
+</html>
