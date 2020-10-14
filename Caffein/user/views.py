@@ -9,4 +9,5 @@ def choice_registration(request):
 
 def registration(request):
     context=dict()
+    context['type'] = request.GET.get('type')
     return render(request, 'registration.html', context)
