@@ -11,3 +11,7 @@ def registration(request):
     context=dict()
     context['type'] = request.GET.get('type')
     return render(request, 'registration.html', context)
+
+
+def complete_regi(request):
+    return render(request,'complete_regi.html')

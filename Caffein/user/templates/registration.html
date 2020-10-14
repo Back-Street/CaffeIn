@@ -14,6 +14,8 @@
         BACK<br />
         STREET
       </div>
+      <div class="regi_page">회원가입</div>
+
       {% if type == "owner" %}
       <div class="check_owner_wrapper">
         <span>사업자 등록증</span>
@@ -75,8 +77,9 @@
         <span>동의함</span>
         <span>동의하지 않음</span>
       </div>
-
-      <button class="regi_submit_btn" type="submit">회원 가입</button>
+      <a href="{% url 'complete_regi' %}">
+        <button class="regi_submit_btn" type="submit">회원 가입</button>
+      </a>
     </div>
   </body>
 </html>
