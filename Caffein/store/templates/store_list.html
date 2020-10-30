@@ -1,110 +1,48 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/cafe.css' %}" />
-  </head>
 
-  <body>
-    <div class="container cafelist">
-      <div class="cafe_card_wrapper">
-        <div class="cafe_card_filter">
-          <span>거리순 |</span>
-          <span>관심순 |</span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/cafe.css' %}" />
+</head>
 
-          <span>소식순</span>
-        </div>
-        {% for one_store in all_store %}
-        <a href="{% url 'store_detail' one_store.id%}">
-          <div class="cafe_card_img">
-            <img
-              src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA5MDlfMTUw%2FMDAxNTk5NjQwOTAxNDU5.tbwBRdMqySCIa0RWj1Q9QmM9212047AnAaTlRcjX0vkg.l3Ql9lY9iFJJRn6GDo4aFnPjXHjJ_50DIdNfALRDK3Eg.JPEG.wendy2251%2FIMG_1635.jpg"
-            />
-          </div>
-          <div class="cafe_card_content_wrap">
-            <div class="cafe_card_story">
-              <img
-                src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2F20140329_99%2Fjijeey_1396076275434aRIjh_JPEG%2FKakaoTalk_51bb4ff86c79df78.jpg"
-              />
-            </div>
-            <div class="cafe_card_content">
-              <div class="cafe_card_title">{{one_store}}</div>
-              <div class="cafe_card_loc">📌CAFE ADDRESS</div>
+<body>
+  <div class="container cafelist">
+    <div class="cafe_card_wrapper">
+      <div class="cafe_card_filter">
+        <span>거리순 |</span>
+        <span>관심순 |</span>
 
-              <div class="cafe_card_time">⏰OPENING HOURS</div>
-            </div>
-            <div class="cafe_card_like">♡10</div>
-          </div>
-        </a>
-
-        <a href="{% url 'store_detail' one_store.id%}">
-          <div class="cafe_card_img">
-            <img
-              src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA5MDlfMTUw%2FMDAxNTk5NjQwOTAxNDU5.tbwBRdMqySCIa0RWj1Q9QmM9212047AnAaTlRcjX0vkg.l3Ql9lY9iFJJRn6GDo4aFnPjXHjJ_50DIdNfALRDK3Eg.JPEG.wendy2251%2FIMG_1635.jpg"
-            />
-          </div>
-          <div class="cafe_card_content_wrap">
-            <div class="cafe_card_story">
-              <img
-                src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2F20140329_99%2Fjijeey_1396076275434aRIjh_JPEG%2FKakaoTalk_51bb4ff86c79df78.jpg"
-              />
-            </div>
-            <div class="cafe_card_content">
-              <div class="cafe_card_title">{{one_store}}</div>
-              <div class="cafe_card_loc">📌CAFE ADDRESS</div>
-
-              <div class="cafe_card_time">⏰OPENING HOURS</div>
-            </div>
-            <div class="cafe_card_like">♡10</div>
-          </div>
-        </a>
-        <a href="{% url 'store_detail' one_store.id%}">
-          <div class="cafe_card_img">
-            <img
-              src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA5MDlfMTUw%2FMDAxNTk5NjQwOTAxNDU5.tbwBRdMqySCIa0RWj1Q9QmM9212047AnAaTlRcjX0vkg.l3Ql9lY9iFJJRn6GDo4aFnPjXHjJ_50DIdNfALRDK3Eg.JPEG.wendy2251%2FIMG_1635.jpg"
-            />
-          </div>
-          <div class="cafe_card_content_wrap">
-            <div class="cafe_card_story">
-              <img
-                src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2F20140329_99%2Fjijeey_1396076275434aRIjh_JPEG%2FKakaoTalk_51bb4ff86c79df78.jpg"
-              />
-            </div>
-            <div class="cafe_card_content">
-              <div class="cafe_card_title">{{one_store}}</div>
-              <div class="cafe_card_loc">📌CAFE ADDRESS</div>
-
-              <div class="cafe_card_time">⏰OPENING HOURS</div>
-            </div>
-            <div class="cafe_card_like">♡10</div>
-          </div>
-        </a>
-        <a href="{% url 'store_detail' one_store.id%}">
-          <div class="cafe_card_img">
-            <img
-              src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA5MDlfMTUw%2FMDAxNTk5NjQwOTAxNDU5.tbwBRdMqySCIa0RWj1Q9QmM9212047AnAaTlRcjX0vkg.l3Ql9lY9iFJJRn6GDo4aFnPjXHjJ_50DIdNfALRDK3Eg.JPEG.wendy2251%2FIMG_1635.jpg"
-            />
-          </div>
-          <div class="cafe_card_content_wrap">
-            <div class="cafe_card_story">
-              <img
-                src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2F20140329_99%2Fjijeey_1396076275434aRIjh_JPEG%2FKakaoTalk_51bb4ff86c79df78.jpg"
-              />
-            </div>
-            <div class="cafe_card_content">
-              <div class="cafe_card_title">{{one_store}}</div>
-              <div class="cafe_card_loc">📌CAFE ADDRESS</div>
-
-              <div class="cafe_card_time">⏰OPENING HOURS</div>
-            </div>
-            <div class="cafe_card_like">♡10</div>
-          </div>
-        </a>
-        {%endfor%}
+        <span>소식순</span>
       </div>
+      {% for one_store in all_store %}
+      <a href="{% url 'store_detail' one_store.id%}">
+        <div class="cafe_card_img">
+          <img src='{{one_store.image.url}}'>
+        </div>
+        <div class="cafe_card_content_wrap">
+          <div class="cafe_card_story">
+            <img src='{{one_store.story}}'>
+          </div>
+          <div class="cafe_card_content">
+            <div class="cafe_card_title">{{one_store}}</div>
+            <div class="cafe_card_loc">📌CAFE ADDRESS<br>
+              {{one_store.address}}</div>
+
+            <div class="cafe_card_time">⏰OPENING HOURS<br>
+              {{one_store.open_time}}</div>
+          </div>
+          <div class="cafe_card_like">♡10</div>
+        </div>
+      </a>
+
+
+      {%endfor%}
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
