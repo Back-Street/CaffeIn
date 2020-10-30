@@ -8,6 +8,10 @@ from django.conf import settings
 
 class Store(models.Model):
     # host = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    x = models.FloatField('경도')
+    y = models.FloatField('위도')
+    image = models.ImageField('대표이미지',blank=True)
+
     name = models.CharField('이름',max_length=200)
     address = models.TextField('주소',blank=True)
     phone_number = models.CharField('전화번호', max_length=20,blank=True)

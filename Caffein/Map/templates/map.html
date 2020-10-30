@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,12 @@
     <link rel="stylesheet" href="{% static 'css/map.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
+
 <body>
     <header>
         <div id="nav">
             <div class="map_btn-wrapper">
-            <image src="/static/map.png" class="mapbtn"></image>
+                <image src="/static/map.png" class="mapbtn"></image>
             </div>
             <a href="{% url 'store_list' %}">
                 <div class="list-btn-wrapper">
@@ -21,21 +23,21 @@
             </a>
 
             <div class="user-btn-wrapper">
-            <image src="/static/user 2.png" class="userbtn"></image>
+                <image src="/static/user 2.png" class="userbtn"></image>
             </div>
 
         </div>
     </header>
-    
+
     <section>
         <div id="main">
             <div class="search-bar-position">
                 <div class="search-bar-wrapper">
                     <input type="text" id="search-bar" placeholder="장소를 검색해주세요">
                     <image src="static/search.png" id="search-btn"></image>
-                    
+
                 </div>
-                
+
             </div>
             <div class="category-bar-position">
                 <div class="category-bar-wrapper">
@@ -50,272 +52,275 @@
                 </div>
             </div>
             <div id="map"></div>
-                
-            </div>
-            <div class="center-btn-wrapper">
-                <i class="fas fa-crosshairs center"></i>
-            </div>
-            <!--마커선택시 모달창-->
-            
-                <div class="modal-wrap">
-                    <div class="modal-size-btn">
-                        <image src="/static/upmarker.png" id="modalup"></image>
-                    </div>
-                    <div class="modal-content-wrap">
-                        
-                        <div class="modal-close">X</div>
-                        
-                        <div class="modal-content">
-                            <div class="modal-notclicked">
 
-                            </div>
-                        </div>
+        </div>
+        <div class="center-btn-wrapper">
+            <i class="fas fa-crosshairs center"></i>
+        </div>
+        <!--마커선택시 모달창-->
 
-                        
+        <div class="modal-wrap">
+            <div class="modal-size-btn">
+                <image src="/static/upmarker.png" id="modalup"></image>
+            </div>
+            <div class="modal-content-wrap">
+
+                <div class="modal-close">X</div>
+
+                <div class="modal-content">
+                    <div class="modal-notclicked">
+
                     </div>
                 </div>
-                
+
+
             </div>
         </div>
-        
+
+        </div>
+        </div>
+
     </section>
-   
+
 
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=55fb65a388899694dad0a54acca653e6&libraries=services"></script>
     <script>
-        var infowindow = new kakao.maps.InfoWindow({zIndex:3});
+        var infowindow = new kakao.maps.InfoWindow({ zIndex: 3 });
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-            mapOption = { 
+            mapOption = {
                 center: new kakao.maps.LatLng(35.231627, 129.084338), // 지도의 중심좌표
                 level: 3 // 지도의 확대 레벨
             };
 
         // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-        var map = new kakao.maps.Map(mapContainer, mapOption); 
+        var map = new kakao.maps.Map(mapContainer, mapOption);
 
-    
+
         if (navigator.geolocation) {
-    
-    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-    navigator.geolocation.getCurrentPosition(function(position) {
-        
-        var lat = position.coords.latitude, // 위도
-            lon = position.coords.longitude; // 경도
-        
-        var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-        
-        // 내 위치 마커 표시
-        mylocMarker(locPosition);
-            
-      });
-    
-} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-    
-    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667);
-    alert("geolocation을 사용할수 없어요")
-        
-    mylocMarker(locPosition, message);
-}
-    var imageSrc = '/static/myloc.png'
-    var imageSize = new kakao.maps.Size(20,20);
-    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
- function mylocMarker(locPosition){
-    var marker = new kakao.maps.Marker({  
-        map: map, 
-        position: locPosition,
-        image:markerImage
-    }); 
-    
 
-    
-    // 지도 중심좌표를 접속위치로 변경합니다
-    // map.setCenter(locPosition);      
-}   
-//마커 이미지 변경 
+            // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+            navigator.geolocation.getCurrentPosition(function (position) {
 
-function myloc() {
-    // 이동할 위도 경도 위치를 생성합니다 
-    navigator.geolocation.getCurrentPosition(function(position) {
-        
-        var lat = position.coords.latitude, // 위도
-            lon = position.coords.longitude; // 경도
-        
-        var locPosition = new kakao.maps.LatLng(lat, lon)
-    
-    
-    // 지도 중심을 부드럽게 이동시킵니다
-    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
-    map.panTo(locPosition);            
-    });
-}
+                var lat = position.coords.latitude, // 위도
+                    lon = position.coords.longitude; // 경도
 
-// 내위치로 이동하기 버튼
-let center_btn = document.querySelector(".center");
-var len_marker;
+                var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 
-center_btn.addEventListener("click",myloc);
- 
-    var markers=[];
-    
-    var info = [];
+                // 내 위치 마커 표시
+                mylocMarker(locPosition);
 
+            });
 
-            {% for cafe in cafe_list %}
-                //좌표 던져주는 변수
-                var position =new kakao.maps.LatLng({{cafe.y}}, {{cafe.x}});
-                info.push({'name':'{{cafe.name}}','x':'{{cafe.x}}','y':'{{cafe.y}}'});
-                markers.push(position);
-            {% endfor %}
-            
-    len_marker = markers.length;
+        } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
 
+            var locPosition = new kakao.maps.LatLng(33.450701, 126.570667);
+            alert("geolocation을 사용할수 없어요")
 
-
-window.onload=function(){
-    function onClick(){
-        var modal_noclick = document.querySelector('.modal-notclicked')
-        var modal = document.querySelector('.modal-wrap');
-        var center_btn_move = document.querySelector('.center-btn-wrapper');
-        var navbar = document.querySelector('#nav');
-        navbar.style.display = 'none';
-        modal.style.display = 'block';
-        center_btn_move.style.bottom = '34%';     
-        console.log(event.currentTarget.id)
-        {% for cafe in cafe_list %}
-        if(event.currentTarget.id == 'daum.maps.Marker.Area:{{forloop.counter}}'){
-            modal_content.innerHTML="<img class='store-image'src='{{cafe.image.url}}'>"+
-                                    "<div class='store-info'>"+
-                                    "<div class='store-profile'>"+"</div>"+
-                                    "<div class='store-text'>"+
-                                    "<h3>{{cafe}}</h3><br>"+"{{cafe.x}}"+"</div>"
-                                    +"</div>"
+            mylocMarker(locPosition, message);
         }
-        
-        {% endfor %}
-    }
-    function offClick(){
-        var modal = document.querySelector('.modal-wrap');
-        var center_btn_move = document.querySelector('.center-btn-wrapper');
-        var navbar = document.querySelector('#nav');
-        modal.style.display = 'none';
-        center_btn_move.style.bottom = '18%';
-        navbar.style.display = 'flex';
-    }
-    
-    //for (var i = 1; i <= len_marker; i++ ){
+        var imageSrc = '/static/myloc.png'
+        var imageSize = new kakao.maps.Size(20, 20);
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+        function mylocMarker(locPosition) {
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: locPosition,
+                image: markerImage
+            });
+
+
+
+            // 지도 중심좌표를 접속위치로 변경합니다
+            // map.setCenter(locPosition);      
+        }
+        //마커 이미지 변경 
+
+        function myloc() {
+            // 이동할 위도 경도 위치를 생성합니다 
+            navigator.geolocation.getCurrentPosition(function (position) {
+
+                var lat = position.coords.latitude, // 위도
+                    lon = position.coords.longitude; // 경도
+
+                var locPosition = new kakao.maps.LatLng(lat, lon)
+
+
+                // 지도 중심을 부드럽게 이동시킵니다
+                // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+                map.panTo(locPosition);
+            });
+        }
+
+        // 내위치로 이동하기 버튼
+        let center_btn = document.querySelector(".center");
+        var len_marker;
+
+        center_btn.addEventListener("click", myloc);
+
+        var markers = [];
+
+        var info = [];
+
+
         {% for cafe in cafe_list %}
-        var modal_btn = document.getElementById('daum.maps.Marker.Area:' + {{forloop.counter}});  
-        modal_btn.addEventListener('click',onClick);
+        //좌표 던져주는 변수
+        var position = new kakao.maps.LatLng({{ cafe.y }}, {{ cafe.x }});
+        info.push({ 'name': '{{cafe.name}}', 'x': '{{cafe.x}}', 'y': '{{cafe.y}}' });
+        markers.push(position);
         {% endfor %}
-    
-   // };
-    document.querySelector('.modal-close').addEventListener('click',offClick);
+
+        len_marker = markers.length;
+
+
+
+        window.onload = function () {
+            function onClick() {
+                var modal_noclick = document.querySelector('.modal-notclicked')
+                var modal = document.querySelector('.modal-wrap');
+                var center_btn_move = document.querySelector('.center-btn-wrapper');
+                var navbar = document.querySelector('#nav');
+                navbar.style.display = 'none';
+                modal.style.display = 'block';
+                center_btn_move.style.bottom = '34%';
+                console.log(event.currentTarget.id)
+                {% for cafe in cafe_list %}
+                if (event.currentTarget.id == 'daum.maps.Marker.Area:{{forloop.counter}}') {
+                    // modal_content.innerHTML = "<div class='cafe_card_img'>" + "<img src='{{cafe.image.url}}'>" + "</div>" + "<div class='cafe_card_content_wrap'>" + "<div class='cafe_card_story'>" + "<img src='{{cafe.story}}'>" + "</div>" + "<div class='cafe_card_content'>" + "<div class='cafe_card_title'>" + "{{cafe.name}}" + "</div>" + "<div class='cafe_card_loc'>" + "📌CAFE ADDRESS<br>{{cafe.address}}</div>" + " <div class='cafe_card_time'>" + "⏰OPENING HOURS<br>" + " {{cafe.open_time}}</div>" + "</div>" + "<div class='cafe_card_like'>♡10</div>" + "</div>"
+
+                    modal_content.innerHTML="<img class='store-image'src='{{cafe.image.url}}'>"+
+                                            "<div class='store-info'>"+
+                                            "<div class='store-profile'>"+"</div>"+
+                                            "<div class='store-text'>"+
+                                            "<h3>{{cafe}}</h3><br>"+"{{cafe.x}}"+"</div>"
+                                            +"</div>"
+                }
+
+                {% endfor %}
+            }
+            function offClick() {
+                var modal = document.querySelector('.modal-wrap');
+                var center_btn_move = document.querySelector('.center-btn-wrapper');
+                var navbar = document.querySelector('#nav');
+                modal.style.display = 'none';
+                center_btn_move.style.bottom = '18%';
+                navbar.style.display = 'flex';
+            }
+
+            //for (var i = 1; i <= len_marker; i++ ){
+            {% for cafe in cafe_list %}
+            var modal_btn = document.getElementById('daum.maps.Marker.Area:' + {{ forloop.counter }});
+        modal_btn.addEventListener('click', onClick);
+        {% endfor %}
+
+        // };
+        document.querySelector('.modal-close').addEventListener('click', offClick);
     
 };
 
-var modal_content = document.querySelector('.modal-content');
-  
-//지도에 마커표시
-function displayMarker(i){
+        var modal_content = document.querySelector('.modal-content');
 
-    var marker  = new kakao.maps.Marker({
-                    map: map,
-                    position: markers[i],
-                    clickable: true,
-    });
+        //지도에 마커표시
+        function displayMarker(i) {
 
-    kakao.maps.event.addListener(marker,'click',function(){
-        loc = marker.getPosition();
-        map.panTo(loc)
-        infowindow.setContent('<div style="padding:5px;font-size:12px;">' +JSON.stringify(info[i].name)+ '</div>');
-        infowindow.open(map, marker);
-    });
-};
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: markers[i],
+                clickable: true,
+            });
+
+            kakao.maps.event.addListener(marker, 'click', function () {
+                loc = marker.getPosition();
+                map.panTo(loc)
+                infowindow.setContent('<div style="padding:5px;font-size:12px;">' + JSON.stringify(info[i].name) + '</div>');
+                infowindow.open(map, marker);
+            });
+        };
 
 
-for (var i=0; i<markers.length; i++){
-    displayMarker(i);
-}
+        for (var i = 0; i < markers.length; i++) {
+            displayMarker(i);
+        }
 
 
         //키워드 서치
         let search_btn = document.querySelector("#search-btn");
         let search_bar = document.querySelector("#search-bar");
 
-        search_btn.addEventListener("click",()=>{
+        search_btn.addEventListener("click", () => {
             let keyword = search_bar.value;
-            if(keyword){
+            if (keyword) {
                 keywordSearch(keyword);
-                        console.log(keyword+"검색하셨습니다");
+                console.log(keyword + "검색하셨습니다");
 
-            }else {
+            } else {
                 alert("검색어를 입력해주세요");
             }
         });
 
-        search_bar.addEventListener("keyup",()=>{
-            if(event.keyCode ===13) {
+        search_bar.addEventListener("keyup", () => {
+            if (event.keyCode === 13) {
                 search_btn.click();
             }
         });
 
-        var ps = new kakao.maps.services.Places(); 
+        var ps = new kakao.maps.services.Places();
 
-// 키워드로 장소를 검색합니다
-function keywordSearch(keyword){
-    ps.keywordSearch(keyword, placesSearchCB); 
-}
+        // 키워드로 장소를 검색합니다
+        function keywordSearch(keyword) {
+            ps.keywordSearch(keyword, placesSearchCB);
+        }
 
 
-// 키워드 검색 완료 시 호출되는 콜백함수 입니다
-function placesSearchCB (data, status, pagination) {
-    if (status === kakao.maps.services.Status.OK) {
+        // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+        function placesSearchCB(data, status, pagination) {
+            if (status === kakao.maps.services.Status.OK) {
 
-        // 검색된 장소 위치를 기준으로 지도 범위를 재설정
-        let center = new kakao.maps.LatLng(data[0].y, data[0].x);
-           
-        map.setCenter(center);
-    };
-}
+                // 검색된 장소 위치를 기준으로 지도 범위를 재설정
+                let center = new kakao.maps.LatLng(data[0].y, data[0].x);
 
-//모달 사이즈 조정
-var doc = document,
-main = document.querySelector(".modal-wrap"),
-ht=185,
-y, dy;
+                map.setCenter(center);
+            };
+        }
 
-var startResize = function(evt){
-      y = evt.screenY;
-  };
-var resize = function(evt){
-    dy = evt.screenY -y;//마우스 이동 이벤트 발생시의 스크린상 y픽셀값 - 이전 픽셀값 -> 이동 픽셀값 계산
-    y= evt.screenY;//시작 y값 재설정
-    ht -= dy;//이동 픽셀값 더해줌
-    main.style.height = ht + "px";
+        //모달 사이즈 조정
+        var doc = document,
+            main = document.querySelector(".modal-wrap"),
+            ht = 185,
+            y, dy;
 
-};
+        var startResize = function (evt) {
+            y = evt.screenY;
+        };
+        var resize = function (evt) {
+            dy = evt.screenY - y;//마우스 이동 이벤트 발생시의 스크린상 y픽셀값 - 이전 픽셀값 -> 이동 픽셀값 계산
+            y = evt.screenY;//시작 y값 재설정
+            ht -= dy;//이동 픽셀값 더해줌
+            main.style.height = ht + "px";
 
-var size_btn = document.querySelector(".modal-size-btn");
-size_btn.addEventListener("mousedown", function(evt){
-    startResize(evt);
-    doc.body.addEventListener("mousemove", resize);
-    doc.body.addEventListener("mouseup",function(){
-        doc.body.removeEventListener("mousemove",resize);
-        modal_resize(function(){
-            ht = main.style.height;
+        };
+
+        var size_btn = document.querySelector(".modal-size-btn");
+        size_btn.addEventListener("mousedown", function (evt) {
+            startResize(evt);
+            doc.body.addEventListener("mousemove", resize);
+            doc.body.addEventListener("mouseup", function () {
+                doc.body.removeEventListener("mousemove", resize);
+                modal_resize(function () {
+                    ht = main.style.height;
+                });
+            });
         });
-    });
-});
-function modal_resize(){
+        function modal_resize() {
 
-    if(ht >300){
-        main.style.height = '660px';
+            if (ht > 300) {
+                main.style.height = '660px';
 
-    } else{
-        main.style.height = '185px';
-    };
-};
+            } else {
+                main.style.height = '185px';
+            };
+        };
 
-        </script>
+    </script>
 </body>
+
 </html>

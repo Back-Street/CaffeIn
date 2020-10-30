@@ -6,9 +6,12 @@
 .config_secret/
 __pycache__
 myvenv/
+media/
 db.sqlite3
 db.sqlite3-journal
+migrations/
 
-**/migrations/**
-!**/migrations
-!**/migrations/__init__.py
+
+ **/migrations/**
+ !**/migrations
+ !**/migrations/__init__.py
