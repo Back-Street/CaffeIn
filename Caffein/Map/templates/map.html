@@ -174,7 +174,7 @@
 
         {% for cafe in cafe_list %}
         //좌표 던져주는 변수
-        var position = new kakao.maps.LatLng({{ cafe.y }}, { { cafe.x } });
+        var position = new kakao.maps.LatLng({{ cafe.y }}, {{ cafe.x }});
         info.push({ 'name': '{{cafe.name}}', 'x': '{{cafe.x}}', 'y': '{{cafe.y}}' });
         markers.push(position);
         {% endfor %}

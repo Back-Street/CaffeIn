@@ -63,10 +63,37 @@
           </div>
         </div>
       </a>
-
-
       {%endfor%}
+
+      <header>
+        <div id="nav">
+            <div class="map_btn-wrapper">
+                <image src="/static/map.png" class="mapbtn"></image>
+            </div>
+            <a href="{% url 'store_list' %}">
+                <div class="list-btn-wrapper">
+                    <i class="fas fa-list-ul"></i>
+                </div>
+            </a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'mypage' %}">
+                <div class="user-btn-wrapper">
+
+                    <image src="/static/user 2.png" class="userbtn"></image>
+                </div>
+            </a>
+            {% else %}
+            <a href="{% url 'login' %}">
+                <div class="user-btn-wrapper">
+
+                    <image src="/static/user 2.png" class="userbtn"></image>
+                </div>
+            </a>
+            {% endif %}
+        </div>
+    </header>
     </div>
+    
   </div>
   
 </body>
