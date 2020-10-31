@@ -16,13 +16,14 @@
       {%csrf_token%}
       <div class="search">
         <div class="search-bar-wrapper">
-            <input type="text" id="search-bar" placeholder="카페를 검색해주세요" name="search" value="{{search}}">
-            <input type="image" src="{% static 'search.png'%}" id="search-btn"></image>
+
+          <input type="text" id="search-bar" placeholder="카페를 검색해주세요" name="search" value="{{search}}">
+          <input type="image" src="{% static 'search.png'%}" id="search-btn"></image>
 
         </div>
-        </div>
+      </div>
     </form>
-    
+
     <div class="cafe_card_wrapper">
       <div class="cafe_card_filter">
         <span>거리순 |</span>
@@ -47,7 +48,19 @@
             <div class="cafe_card_time">⏰{{one_store.open_time}}<br>
             </div>
           </div>
-          <div class="cafe_card_like">♡10</div>
+
+          <div class="cafe_card_like">
+            <a href="{% url 'like_toggle' one_store.id %}">
+              {% if one_store in user.likes.all %}
+              X:{{one_store.like_count}}
+              {% else %}
+              ♡:{{one_store.like_count}}
+              {% endif %}
+
+
+            </a>
+
+          </div>
         </div>
       </a>
 

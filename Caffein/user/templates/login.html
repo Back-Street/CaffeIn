@@ -1,0 +1,33 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}" />
+</head>
+
+<body>
+    <div class="container regi_container">
+        <div class="regi_logo">
+            BACK<br />
+            STREET
+        </div>
+        <div class="regi_page">LOGIN</div>
+
+        <div class="regi_card">
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" placeholder="아이디 또는 이메일" name="username">
+                <input type="password" placeholder="비밀번호" name="password"><br>
+                <input type="submit" value="로그인">
+            </form>
+            <div><a href="{% url 'choice_registration' %}">회원가입</a></div>
+        </div>
+        <div>{{message}}</div>
+
+</body>
+
+</html>

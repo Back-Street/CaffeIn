@@ -11,6 +11,7 @@ class Store(models.Model):
     x = models.FloatField('경도')
     y = models.FloatField('위도')
     image = models.ImageField('대표이미지',blank=True)
+    like_count = models.PositiveIntegerField(default=0)
 
     name = models.CharField('이름',max_length=200)
     address = models.TextField('주소',blank=True)
