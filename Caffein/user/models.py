@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
+from store.models import Store
 
 class CaffeInUserManager(BaseUserManager):
     use_in_migrations = True    
@@ -62,6 +63,7 @@ class CaffeInUser(AbstractBaseUser):
     # birth = models.DateField(verbose_name='생년월일')
     # phone = models.CharField(max_length=20, verbose_name='전화번호')
     # email = models.EmailField('이메일', unique=True)
+    likes = models.ManyToManyField(to=Store,related_name='likers')
     
     # 생성시간
     date_joined = models.DateTimeField(verbose_name='date_joined', auto_now_add=True)
