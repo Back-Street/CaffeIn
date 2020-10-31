@@ -21,11 +21,21 @@
                     <i class="fas fa-list-ul"></i>
                 </div>
             </a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'mypage' %}">
+                <div class="user-btn-wrapper">
 
-            <div class="user-btn-wrapper">
-                <image src="/static/user 2.png" class="userbtn"></image>
-            </div>
+                    <image src="/static/user 2.png" class="userbtn"></image>
+                </div>
+            </a>
+            {% else %}
+            <a href="{% url 'login' %}">
+                <div class="user-btn-wrapper">
 
+                    <image src="/static/user 2.png" class="userbtn"></image>
+                </div>
+            </a>
+            {% endif %}
         </div>
     </header>
 
@@ -164,7 +174,7 @@
 
         {% for cafe in cafe_list %}
         //좌표 던져주는 변수
-        var position = new kakao.maps.LatLng({{ cafe.y }}, {{ cafe.x }});
+        var position = new kakao.maps.LatLng({{ cafe.y }}, { { cafe.x } });
         info.push({ 'name': '{{cafe.name}}', 'x': '{{cafe.x}}', 'y': '{{cafe.y}}' });
         markers.push(position);
         {% endfor %}
@@ -187,16 +197,16 @@
                 if (event.currentTarget.id == 'daum.maps.Marker.Area:{{forloop.counter}}') {
                     // modal_content.innerHTML = "<div class='cafe_card_img'>" + "<img src='{{cafe.image.url}}'>" + "</div>" + "<div class='cafe_card_content_wrap'>" + "<div class='cafe_card_story'>" + "<img src='{{cafe.story}}'>" + "</div>" + "<div class='cafe_card_content'>" + "<div class='cafe_card_title'>" + "{{cafe.name}}" + "</div>" + "<div class='cafe_card_loc'>" + "📌CAFE ADDRESS<br>{{cafe.address}}</div>" + " <div class='cafe_card_time'>" + "⏰OPENING HOURS<br>" + " {{cafe.open_time}}</div>" + "</div>" + "<div class='cafe_card_like'>♡10</div>" + "</div>"
 
-                    modal_content.innerHTML="<img class='store-image' src='{{cafe.image.url}}'>"+
-                                            "<div class='store-info'>"+
-                                                "<div class='store-profile'>"+"</div>"+
-                                                "<div class='store-text'>"+
-                                                    "<h3>{{cafe}}</h3><br>"+
-                                                    "{{cafe.address}}<br>"+
-                                                    "{{cafe.phone_number}}<br>"+                                              
-                                                    "{{cafe.sns}}"
-                                                +"</div>"
-                                            +"</div>"
+                    modal_content.innerHTML = "<img class='store-image' src='{{cafe.image.url}}'>" +
+                        "<div class='store-info'>" +
+                        "<div class='store-profile'>" + "</div>" +
+                        "<div class='store-text'>" +
+                        "<h3>{{cafe}}</h3><br>" +
+                        "{{cafe.address}}<br>" +
+                        "{{cafe.phone_number}}<br>" +
+                        "{{cafe.sns}}"
+                        + "</div>"
+                        + "</div>"
                 }
 
                 {% endfor %}

@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
+
 
 # Create your views here.
 
@@ -15,3 +17,26 @@ def registration(request):
 
 def complete_regi(request):
     return render(request,'complete_regi.html')
+
+def login(request):
+    context = {}
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(request, username=username,
+        password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('mypage')
+        else:
+            context['message'] = '존재하지 않는 아이디/비밀번호입니다'
+            
+            return render(request, 'login.html', context)
+    else:
+
+        return render(request,'login.html')
+
+def mypage(request):
+    return render(request, 'mypage.html')
