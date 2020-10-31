@@ -189,9 +189,13 @@
 
                     modal_content.innerHTML="<img class='store-image' src='{{cafe.image.url}}'>"+
                                             "<div class='store-info'>"+
-                                            "<div class='store-profile'>"+"</div>"+
-                                            "<div class='store-text'>"+
-                                            "<h3>{{cafe}}</h3><br>"+"{{cafe.x}}"+"</div>"
+                                                "<div class='store-profile'>"+"</div>"+
+                                                "<div class='store-text'>"+
+                                                    "<h3>{{cafe}}</h3><br>"+
+                                                    "{{cafe.address}}<br>"+
+                                                    "{{cafe.phone_number}}<br>"+                                              
+                                                    "{{cafe.sns}}"
+                                                +"</div>"
                                             +"</div>"
                 }
 

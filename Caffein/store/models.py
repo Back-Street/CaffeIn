@@ -35,14 +35,19 @@ class Menu(models.Model):
         verbose_name_plural = '메뉴'
 
     store = models.ForeignKey(Store,on_delete=models.SET_NULL, null=True)
+    store_menu = models.TextField("가게메뉴",blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.store_menu
 
 class Review(models.Model):
     class Meta:
         verbose_name_plural = '리뷰'
 
     store = models.ForeignKey(Store,on_delete=models.SET_NULL,null=True)
+    user_review = models.TextField("리뷰",blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
