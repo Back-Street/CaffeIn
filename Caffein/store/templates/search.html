@@ -1,0 +1,77 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/cafe.css' %}" />
+</head>
+<body>
+
+<form method="POST">
+    {%csrf_token%}
+    {% if not store_list %}
+    <div class="container cafelist">
+    <form method="POST" action="{% url 'search' %}">
+        {%csrf_token%}
+        <div class="search">
+            <div class="search-bar-wrapper">
+                <input type="text" id="search-bar" placeholder="카페를 검색해주세요" name="search" value="{{search}}">
+                <input type="image" src="{% static 'search.png'%}" id="search-btn"></image>
+    
+            </div>
+            </div>
+            <p class="p">검색 결과가 없습니다😂😂
+                <br>다시 검색해주세요👀👀</p>
+        </div>
+      </form>
+
+   
+    {% else %}
+    
+    <div class="container cafelist">
+        <form method="POST" action="{% url 'search' %}">
+            {%csrf_token%}
+            <div class="search">
+                <div class="search-bar-wrapper">
+                    <input type="text" id="search-bar" placeholder="카페를 검색해주세요" name="search" value="{{search}}">
+                    <input type="image" src="{% static 'search.png'%}" id="search-btn"></image>
+        
+                </div>
+                </div>
+          </form>
+        <div class="cafe_card_wrapper">
+          <div class="cafe_card_filter">
+            <span>거리순 |</span>
+            <span>관심순 |</span>
+    
+            <span>소식순</span>
+          </div>
+    {% for i in store_list.all %}
+
+    <a href="{% url 'store_detail' i.id%}">
+        <div class="cafe_card_img">
+          <img src='{{i.image.url}}'>
+        </div>
+        <div class="cafe_card_content_wrap">
+          <div class="cafe_card_story">
+            <img src='{{i.story}}'>
+          </div>
+          <div class="cafe_card_content">
+            <div class="cafe_card_title">{{i}}</div>
+            <div class="cafe_card_loc">📌{{i.address}}<br>
+            </div>
+
+            <div class="cafe_card_time">⏰{{i.open_time}}<br>
+            </div>
+          </div>
+          <div class="cafe_card_like">♡10</div>
+        </div>
+      </a>
+      {% endfor %}
+    {% endif %}  
+</form>
+ 
+</body>
+</html>

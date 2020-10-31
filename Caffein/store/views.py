@@ -20,6 +20,19 @@ def index(request):
     
     return render(request,"store_detail.html")
 
+def search(request):
+    context=dict()
+    store_list = Store.objects.all()
+    store = request.POST.get('search',"")
+
+    if store:
+        store_list = store_list.filter(name__icontains=store)
+        context['store_list'] = store_list
+        context['search'] = search
+        return render(request,'search.html',context)
+    else:
+        return render(request,'search.html')
+
 
 # class PublisherDetail(DetailView):
     # queryset = Publisher.objects.all()
