@@ -55,9 +55,9 @@
           <img src='{{i.image.url}}'>
         </div>
         <div class="cafe_card_content_wrap">
-          <div class="cafe_card_story">
+          <!-- <div class="cafe_card_story">
             <img src='{{i.story}}'>
-          </div>
+          </div> -->
           <div class="cafe_card_content">
             <div class="cafe_card_title">{{i}}</div>
             <div class="cafe_card_loc">📌{{i.address}}<br>
@@ -66,12 +66,47 @@
             <div class="cafe_card_time">⏰{{i.open_time}}<br>
             </div>
           </div>
-          <div class="cafe_card_like">♡10</div>
+          <div class="cafe_card_like">
+            <a href="{% url 'like_toggle' i.id %}">
+              {% if i in user.likes.all %}
+              X:{{i.like_count}}
+              {% else %}
+              ♡:{{i.like_count}}
+              {% endif %}
+            </a>
+          </div>
         </div>
       </a>
       {% endfor %}
     {% endif %}  
-</form>
- 
+
+
+<header>
+  <div id="nav">
+      <div class="map_btn-wrapper">
+          <image src="/static/map.png" class="mapbtn"></image>
+      </div>
+      <a href="{% url 'store_list' %}">
+          <div class="list-btn-wrapper">
+              <i class="fas fa-list-ul"></i>
+          </div>
+      </a>
+      {% if user.is_authenticated %}
+      <a href="{% url 'mypage' %}">
+          <div class="user-btn-wrapper">
+
+              <image src="/static/user 2.png" class="userbtn"></image>
+          </div>
+      </a>
+      {% else %}
+      <a href="{% url 'login' %}">
+          <div class="user-btn-wrapper">
+
+              <image src="/static/user 2.png" class="userbtn"></image>
+          </div>
+      </a>
+      {% endif %}
+  </div>
+</header>
 </body>
 </html>
