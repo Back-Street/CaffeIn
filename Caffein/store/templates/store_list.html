@@ -16,14 +16,12 @@
       {%csrf_token%}
       <div class="search">
         <div class="search-bar-wrapper">
-
           <input type="text" id="search-bar" placeholder="카페를 검색해주세요" name="search" value="{{search}}">
           <input type="image" src="{% static 'search.png'%}" id="search-btn"></image>
 
         </div>
       </div>
     </form>
-
     <div class="cafe_card_wrapper">
       <div class="cafe_card_filter">
         <span>거리순 |</span>
@@ -32,14 +30,17 @@
         <span>소식순</span>
       </div>
       {% for one_store in all_store %}
+      
       <a href="{% url 'store_detail' one_store.id%}">
         <div class="cafe_card_img">
           <img src='{{one_store.image.url}}'>
         </div>
         <div class="cafe_card_content_wrap">
-          <div class="cafe_card_story">
+          <!-- 카페 스토리 : 일단 보류 -->
+          <!-- <div class="cafe_card_story">
             <img src='{{one_store.story}}'>
-          </div>
+          </div> -->
+
           <div class="cafe_card_content">
             <div class="cafe_card_title">{{one_store}}</div>
             <div class="cafe_card_loc">📌{{one_store.address}}<br>
@@ -48,7 +49,7 @@
             <div class="cafe_card_time">⏰{{one_store.open_time}}<br>
             </div>
           </div>
-
+         
           <div class="cafe_card_like">
             <a href="{% url 'like_toggle' one_store.id %}">
               {% if one_store in user.likes.all %}
@@ -56,19 +57,42 @@
               {% else %}
               ♡:{{one_store.like_count}}
               {% endif %}
-
-
             </a>
 
           </div>
         </div>
       </a>
-
-
       {%endfor%}
     </div>
+    
   </div>
-  
+  <header>
+    <div id="nav">
+        <div class="map_btn-wrapper">
+            <image src="/static/map.png" class="mapbtn"></image>
+        </div>
+        <a href="{% url 'store_list' %}">
+            <div class="list-btn-wrapper">
+                <i class="fas fa-list-ul"></i>
+            </div>
+        </a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'mypage' %}">
+            <div class="user-btn-wrapper">
+
+                <image src="/static/user 2.png" class="userbtn"></image>
+            </div>
+        </a>
+        {% else %}
+        <a href="{% url 'login' %}">
+            <div class="user-btn-wrapper">
+
+                <image src="/static/user 2.png" class="userbtn"></image>
+            </div>
+        </a>
+        {% endif %}
+    </div>
+  </header>
 </body>
 
 </html>
