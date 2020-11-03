@@ -13,27 +13,29 @@
 <body>
     <header>
         <div id="nav">
-            <div class="map_btn-wrapper">
+            <a href="{% url 'map' %}">
+
                 <image src="/static/map.png" class="mapbtn"></image>
-            </div>
+
+            </a>
             <a href="{% url 'store_list' %}">
-                <div class="list-btn-wrapper">
-                    <i class="fas fa-list-ul"></i>
-                </div>
+
+                <image src="/static/list.png"></image>
+
             </a>
             {% if user.is_authenticated %}
             <a href="{% url 'mypage' %}">
-                <div class="user-btn-wrapper">
 
-                    <image src="/static/user 2.png" class="userbtn"></image>
-                </div>
+
+                <image src="/static/user2.png" class="userbtn"></image>
+
             </a>
             {% else %}
             <a href="{% url 'login' %}">
-                <div class="user-btn-wrapper">
 
-                    <image src="/static/user 2.png" class="userbtn"></image>
-                </div>
+
+                <image src="/static/user2.png" class="userbtn"></image>
+
             </a>
             {% endif %}
         </div>
@@ -49,7 +51,7 @@
                 </div>
 
             </div>
-            <div class="category-bar-position">
+            <!-- <div class="category-bar-position">
                 <div class="category-bar-wrapper">
                     <a href="#">전체</a>
                     <a href="#">만들기가 좋은</a>
@@ -60,7 +62,7 @@
                     <a href="#">점심먹기 좋은</a>
                     <a href="#">야발..</a>
                 </div>
-            </div>
+            </div> -->
             <div id="map"></div>
 
         </div>
@@ -86,9 +88,18 @@
 
             </div>
         </div>
+        <!-- 회원가입 권유 모달창-->
+        <div class="modal-agreet">
+            <div class="agreet-content">
+                <div class="agreet-close">
+                    x
+                </div>
+                <p>사장님!<br>
+                    사장님의 가게를 꾸밀 준비가 되었어요</p>
+                <p style="color: #f37b65;">아래 탭을 통해 회원가입/로그인 하기</p>
+            </div>
+        </div>
 
-        </div>
-        </div>
 
     </section>
 
@@ -255,7 +266,7 @@
             displayMarker(i);
         }
 
-        
+
         //키워드 서치
         let search_btn = document.querySelector("#search-btn");
         let search_bar = document.querySelector("#search-bar");
@@ -296,43 +307,56 @@
             };
         }
 
+        window.onload = function modalagreet() {
+            var modal_close = document.querySelector(".agreet-close");
+            var modal = document.querySelector(".modal-agreet")
+            var center_btn_move = document.querySelector('.center-btn-wrapper')
+            center_btn_move.style.bottom = '30%';
+            modal_close.addEventListener('click', () => {
+                modal.style.display = "none";
+                center_btn_move.style.bottom = '18%';
+            })
+
+
+        }
+
         //모달 사이즈 조정
-        var doc = document,
-            main = document.querySelector(".modal-wrap"),
-            ht = 185,
-            y, dy;
+        // var doc = document,
+        //     main = document.querySelector(".modal-wrap"),
+        //     ht = 185,
+        //     y, dy;
 
-        var startResize = function (evt) {
-            y = evt.screenY;
-        };
-        var resize = function (evt) {
-            dy = evt.screenY - y;//마우스 이동 이벤트 발생시의 스크린상 y픽셀값 - 이전 픽셀값 -> 이동 픽셀값 계산
-            y = evt.screenY;//시작 y값 재설정
-            ht -= dy;//이동 픽셀값 더해줌
-            main.style.height = ht + "px";
+        // var startResize = function (evt) {
+        //     y = evt.screenY;
+        // };
+        // var resize = function (evt) {
+        //     dy = evt.screenY - y;//마우스 이동 이벤트 발생시의 스크린상 y픽셀값 - 이전 픽셀값 -> 이동 픽셀값 계산
+        //     y = evt.screenY;//시작 y값 재설정
+        //     ht -= dy;//이동 픽셀값 더해줌
+        //     main.style.height = ht + "px";
 
-        };
+        // };
 
-        var size_btn = document.querySelector(".modal-size-btn");
-        size_btn.addEventListener("mousedown", function (evt) {
-            startResize(evt);
-            doc.body.addEventListener("mousemove", resize);
-            doc.body.addEventListener("mouseup", function () {
-                doc.body.removeEventListener("mousemove", resize);
-                modal_resize(function () {
-                    ht = main.style.height;
-                });
-            });
-        });
-        function modal_resize() {
+        // var size_btn = document.querySelector(".modal-size-btn");
+        // size_btn.addEventListener("mousedown", function (evt) {
+        //     startResize(evt);
+        //     doc.body.addEventListener("mousemove", resize);
+        //     doc.body.addEventListener("mouseup", function () {
+        //         doc.body.removeEventListener("mousemove", resize);
+        //         modal_resize(function () {
+        //             ht = main.style.height;
+        //         });
+        //     });
+        // });
+        // function modal_resize() {
 
-            if (ht > 300) {
-                main.style.height = '660px';
+        //     if (ht > 300) {
+        //         main.style.height = '660px';
 
-            } else {
-                main.style.height = '185px';
-            };
-        };
+        //     } else {
+        //         main.style.height = '185px';
+        //     };
+        // };
 
     </script>
 </body>
