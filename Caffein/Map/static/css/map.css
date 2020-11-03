@@ -34,15 +34,14 @@ body {
     height: 8%;
     justify-content: space-around;
     align-items: center;
-    opacity: 0.8;
+    opacity: 0.9;
     background-color: rgba(255, 255, 255, 0.911);
     position: fixed;
     display: flex;
     flex-direction: row;
-    border-radius: 10px;
     bottom: 0;
     z-index: 99;
-    box-shadow: 5px 0px 10px 3px rgba(26, 25, 25, 0.801);
+    box-shadow: 5px 0px 10px 3px rgba(198, 194, 194, 0.801);
 }
 
 #nav a{
