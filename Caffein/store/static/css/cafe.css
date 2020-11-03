@@ -274,30 +274,27 @@ a:visited {
   height: 8%;
   justify-content: space-around;
   align-items: center;
-  opacity: 0.8;
+  opacity: 0.9;
   background-color: rgba(255, 255, 255, 0.911);
   position: fixed;
   right:0px;
   display: flex;
   flex-direction: row;
-  border-radius: 10px;
   bottom: 0;
   z-index: 99;
   box-shadow: 5px 0px 10px 3px rgba(26, 25, 25, 0.801);
 }
 
-.list-btn-wrapper {
-  size: 30px;
-  font-size: 33px;
-  color: black;
-}
-
-.mapbtn {
-  width: 50%;
-  height: 50%;
-}
-
-.userbtn {
-  width: 100%;
+#nav a{
+  width: 25%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+#nav img{
+  width: 40%;
+  height: 50%;
 }

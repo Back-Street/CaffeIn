@@ -19,7 +19,7 @@ class StoreDetail(DetailView):
     template_name = 'store_detail.html'
 
 
-@login_required(login_url='/')
+@login_required(login_url='login')
 def like_toggle(request, store_id):
     user = request.user
     store = Store.objects.get(id=store_id)

@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 300;
+    src: url(/fonts/NotoSansKr/NotoSansKR-Light.woff2) format('woff2'),
+        url(/fonts/NotoSansKr/NotoSansKR-Light.woff) format('woff'),
+        url(/fonts/NotoSansKr/NotoSansKR-Light.otf) format('opentype');
+}
+
 html,
 body {
     margin: 0;
@@ -5,11 +14,13 @@ body {
     width: 100%;
     height: 100vh;
     overflow: hidden;
-
+    font-family: 'Noto Sans KR'
 }
+
 
 * {
     outline: none;
+
 }
 
 .category-bar-wrapper::-webkit-scrollbar {
@@ -23,21 +34,28 @@ body {
     height: 8%;
     justify-content: space-around;
     align-items: center;
-    opacity: 0.8;
+    opacity: 0.9;
     background-color: rgba(255, 255, 255, 0.911);
     position: fixed;
     display: flex;
     flex-direction: row;
-    border-radius: 10px;
     bottom: 0;
     z-index: 99;
-    box-shadow: 5px 0px 10px 3px rgba(26, 25, 25, 0.801);
+    box-shadow: 5px 0px 10px 3px rgba(198, 194, 194, 0.801);
 }
 
+#nav a{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
 
-.list-btn-wrapper>i {
-    font-size: 33px;
-    color: black;
+#nav img{
+    width: 40%;
+    height: 50%;
 }
 
 #main {
@@ -270,15 +288,34 @@ br {
     top: -50%;
 }
 
-.mapbtn {
-    width: 50%;
-    height: 50%;
+/*회원가입 권유 모달*/
+
+.modal-agreet{
+    z-index: 999;
+    position: fixed;
+    background-color: white;
+    bottom: 10%;
+    padding:10px;
+    right:3%;
+    width:30%;
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px 3px rgb(214, 213, 213);
+
+
+
+}
+.agreet-content{
+    text-align: center;
+    font-size: 70%;
+}
+.agreet-close{
+    position: absolute;
+    right:5%;
+    top: 0;
+    cursor: pointer;
 }
 
-.userbtn {
-    width: 100%;
-    height: 100%;
-}
+
 
 /* .cafe_card_filter {
     margin-top: 150px;

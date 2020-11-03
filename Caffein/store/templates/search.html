@@ -1,56 +1,85 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>검색 페이지</title>
-    <link rel="stylesheet" href="{% static 'css/cafe.css' %}" />
-</head>
-<body>
 
-<form method="POST">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>검색 페이지</title>
+  <link rel="stylesheet" href="{% static 'css/cafe.css' %}" />
+</head>
+
+<body>
+  <div id="nav">
+    <a href="{% url 'map' %}">
+
+      <image src="/static/map.png" class="mapbtn"></image>
+
+    </a>
+    <a href="{% url 'store_list' %}">
+
+      <image src="/static/list.png"></image>
+
+    </a>
+    {% if user.is_authenticated %}
+    <a href="{% url 'mypage' %}">
+
+
+      <image src="/static/user2.png" class="userbtn"></image>
+
+    </a>
+    {% else %}
+    <a href="{% url 'login' %}">
+
+
+      <image src="/static/user2.png" class="userbtn"></image>
+
+    </a>
+    {% endif %}
+  </div>
+
+  <form method="POST">
     {%csrf_token%}
     {% if not store_list %}
     <div class="container cafelist">
-    <form method="POST" action="{% url 'search' %}">
+      <form method="POST" action="{% url 'search' %}">
         {%csrf_token%}
         <div class="search">
-            <div class="search-bar-wrapper">
-                <input type="text" id="search-bar" placeholder="카페를 검색해주세요" name="search" value="{{search}}">
-                <input type="image" src="{% static 'search.png'%}" id="search-btn"></image>
-    
-            </div>
-            </div>
-            <p class="p">검색 결과가 없습니다😂😂
-                <br>다시 검색해주세요👀👀</p>
-        </div>
-      </form>
+          <div class="search-bar-wrapper">
+            <input type="text" id="search-bar" placeholder="카페를 검색해주세요" name="search" value="{{search}}">
+            <input type="image" src="{% static 'search.png'%}" id="search-btn"></image>
 
-   
-    {% else %}
-    
-    <div class="container cafelist">
-        <form method="POST" action="{% url 'search' %}">
-            {%csrf_token%}
-            <div class="search">
-                <div class="search-bar-wrapper">
-                    <input type="text" id="search-bar" placeholder="카페를 검색해주세요" name="search" value="{{search}}">
-                    <input type="image" src="{% static 'search.png'%}" id="search-btn"></image>
-        
-                </div>
-                </div>
-          </form>
-        <div class="cafe_card_wrapper">
-          <div class="cafe_card_filter">
-            <span>거리순 |</span>
-            <span>관심순 |</span>
-    
-            <span>소식순</span>
           </div>
-    {% for i in store_list.all %}
+        </div>
+        <p class="p">검색 결과가 없습니다😂😂
+          <br>다시 검색해주세요👀👀</p>
+    </div>
+  </form>
 
-    <a href="{% url 'store_detail' i.id%}">
+
+  {% else %}
+
+  <div class="container cafelist">
+    <form method="POST" action="{% url 'search' %}">
+      {%csrf_token%}
+      <div class="search">
+        <div class="search-bar-wrapper">
+          <input type="text" id="search-bar" placeholder="카페를 검색해주세요" name="search" value="{{search}}">
+          <input type="image" src="{% static 'search.png'%}" id="search-btn"></image>
+
+        </div>
+      </div>
+    </form>
+    <div class="cafe_card_wrapper">
+      <div class="cafe_card_filter">
+        <span>거리순 |</span>
+        <span>관심순 |</span>
+
+        <span>소식순</span>
+      </div>
+      {% for i in store_list.all %}
+
+      <a href="{% url 'store_detail' i.id%}">
         <div class="cafe_card_img">
           <img src='{{i.image.url}}'>
         </div>
@@ -78,35 +107,10 @@
         </div>
       </a>
       {% endfor %}
-    {% endif %}  
-
-
-<header>
-  <div id="nav">
-      <div class="map_btn-wrapper">
-          <image src="/static/map.png" class="mapbtn"></image>
-      </div>
-      <a href="{% url 'store_list' %}">
-          <div class="list-btn-wrapper">
-              <i class="fas fa-list-ul"></i>
-          </div>
-      </a>
-      {% if user.is_authenticated %}
-      <a href="{% url 'mypage' %}">
-          <div class="user-btn-wrapper">
-
-              <image src="/static/user 2.png" class="userbtn"></image>
-          </div>
-      </a>
-      {% else %}
-      <a href="{% url 'login' %}">
-          <div class="user-btn-wrapper">
-
-              <image src="/static/user 2.png" class="userbtn"></image>
-          </div>
-      </a>
       {% endif %}
-  </div>
-</header>
+
+
+
 </body>
+
 </html>
