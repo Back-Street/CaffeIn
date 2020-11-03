@@ -10,7 +10,9 @@
 </head>
 
 <body>
+
   <div class="container cafelist">
+
     <form method="POST" action="{% url 'search' %}">
       {%csrf_token%}
       <div class="search">
@@ -46,6 +48,7 @@
             </div>
           </div>
 
+
           <div class="cafe_card_like">
             <a href="{% url 'like_toggle' one_store.id %}">
               {% if one_store in user.likes.all %}
@@ -56,8 +59,8 @@
 
 
             </a>
-
           </div>
+
         </div>
       </a>
 
