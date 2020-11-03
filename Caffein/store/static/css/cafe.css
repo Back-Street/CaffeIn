@@ -263,14 +263,6 @@ a:visited {
 }
 
 
-<<<<<<< HEAD
-
-
-.list-btn-wrapper >i {
-  font-size: 33px;
-  color: black;
-}
-=======
 /* ---네브바--- */
 #nav {
   width: 100%;
@@ -289,19 +281,16 @@ a:visited {
   box-shadow: 5px 0px 10px 3px rgba(26, 25, 25, 0.801);
 }
 
-.list-btn-wrapper {
-  size: 30px;
-  font-size: 33px;
-  color: black;
+#nav a{
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
-.mapbtn {
-  width: 50%;
+#nav img{
+  width: 40%;
   height: 50%;
 }
-
-.userbtn {
-  width: 100%;
-  height: 100%;
-}
->>>>>>> bd8639d9b3c50afe484a2769e482967a0ab88af2
