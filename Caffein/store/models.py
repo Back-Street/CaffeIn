@@ -22,6 +22,7 @@ class Store(models.Model):
     Info = models.TextField("카페이야기",blank=True)
     story = models.FileField("스토리",upload_to="store/story",blank=True)
     icon = models.ImageField("아이콘",upload_to="store/icon",blank=True)
+    more_info = models.TextField("세부정보",blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

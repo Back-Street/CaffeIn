@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   max-width: 500px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -106,9 +106,13 @@ a:visited {
 }
 
 .cafe_card_title {
+  display: inline-block;
   font-size: 20px;
   font-weight: bold;
   margin-right: 10px;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
 }
 
 .cafe_card_loc,
@@ -146,6 +150,7 @@ a:visited {
 
 .detail_header_info_wapper>.cafe_card_like {
   margin-bottom: -20px;
+  margin-left: -50px;
 }
 
 .detail_title {
