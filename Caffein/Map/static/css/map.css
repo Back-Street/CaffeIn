@@ -1,12 +1,18 @@
-html,body{
+html,
+body {
     margin: 0;
     padding: 0;
-    width:100%;
+    width: 100%;
     height: 100vh;
-    overflow:hidden;
+    overflow: hidden;
 
 }
-.category-bar-wrapper::-webkit-scrollbar{
+
+* {
+    outline: none;
+}
+
+.category-bar-wrapper::-webkit-scrollbar {
     width: 0;
     height: 0;
 }
@@ -20,7 +26,7 @@ html,body{
     opacity: 0.8;
     background-color: rgba(255, 255, 255, 0.911);
     position: fixed;
-    display:flex;
+    display: flex;
     flex-direction: row;
     border-radius: 10px;
     bottom: 0;
@@ -29,48 +35,54 @@ html,body{
 }
 
 
-.list-btn-wrapper >i {
+.list-btn-wrapper>i {
     font-size: 33px;
     color: black;
 }
+
 #main {
-    width:100%;
-    height:100vh;
-    z-index: 2;
-    position: absolute;
-    top:0;
-}
-#main > #map{
     width: 100%;
     height: 100vh;
     z-index: 2;
     position: absolute;
-    top:0;
+    top: 0;
 }
-.search-bar-position{
+
+#main>#map {
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+}
+
+.search-bar-position {
     position: relative;
     z-index: 3;
     width: 70%;
-    margin:0 auto;
+    margin: 0 auto;
     height: 7%;
     top: 10%;
     align-items: center;
 }
-.search-bar-wrapper{
+
+.search-bar-wrapper {
     position: absolute;
     height: 100%;
     width: 100%;
     margin: 0 auto;
     border-radius: 40px;
     background-color: white;
-    box-shadow: 5px 3px 10px 5px rgba(0,0,0,0.1);
+    box-shadow: 5px 3px 10px 5px rgba(0, 0, 0, 0.1);
 }
+
 #search-btn {
     position: absolute;
-    top: 10%;
+    top: 5%;
     height: 90%;
     right: 0.5%;
 }
+
 #search-bar {
     border-style: none;
     position: relative;
@@ -81,29 +93,33 @@ html,body{
     margin: 0 auto;
     font-size: 90%;
 }
-#search-bar:focus{
-    outline:none;
+
+#search-bar:focus {
+    outline: none;
 
 }
-.category-bar-position{
+
+.category-bar-position {
     position: relative;
     z-index: 3;
     width: 70%;
-    margin:0 auto;
+    margin: 0 auto;
     overflow: hidden;
     height: 7%;
     top: 13%;
-    
+
 }
-.category-bar-wrapper{
+
+.category-bar-wrapper {
     overflow: auto;
     white-space: nowrap;
     align-items: center;
     justify-content: space-between;
     overflow-x: scroll;
     height: 100%;
-    
+
 }
+
 .category-bar-wrapper a {
     display: inline-block;
     margin: 0 auto;
@@ -114,13 +130,15 @@ html,body{
     font-weight: 580;
     padding: 5px;
     text-decoration: none;
-    color:black;
+    color: black;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.479);
 }
-.category-bar-wrapper a:hover{
+
+.category-bar-wrapper a:hover {
     background-color: turquoise;
 }
-.center-btn-wrapper{
+
+.center-btn-wrapper {
     position: fixed;
     border-radius: 4px;
     padding: 3px;
@@ -128,30 +146,31 @@ html,body{
     right: 10%;
     z-index: 3;
     background-color: white;
-    box-shadow: 2px 3px 0px 2px rgba(0,0,0,0.4);
-    
-    
+    box-shadow: 2px 3px 0px 2px rgba(0, 0, 0, 0.4);
+
+
 }
 
 .center {
     font-size: 30px;
     color: rgb(73, 71, 71);
-    
+
 }
 
-.modal-wrap{
+.modal-wrap {
     display: none;
     width: 100%;
     height: 30%;
     min-height: 250px;
     position: absolute;
     z-index: 6;
-    bottom:0;
+    bottom: 0;
     border-radius: 10px;
     background-color: white;
-    
-    }
-.modal-size-btn{
+
+}
+
+.modal-size-btn {
     position: absolute;
     border-radius: 10px;
     top: 0;
@@ -159,10 +178,11 @@ html,body{
     height: 20px;
     background-color: white;
     text-align: center;
-    box-shadow: 3px 3px rgba(0,0,0,0.1);
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.1);
     z-index: 999;
 }
-.modal-close{
+
+.modal-close {
     width: 26px;
     height: 26px;
     font-size: 30px;
@@ -172,75 +192,85 @@ html,body{
     z-index: 1;
     right: 0;
 }
-.modal-content-wrap{
+
+.modal-content-wrap {
     width: 100%;
     position: absolute;
     height: 96%;
     bottom: 0;
     overflow-y: scroll;
-    overflow:auto;
+    overflow: auto;
     background-color: pink;
-    
+
 }
-.modal-content{
-    color:black;
+
+.modal-content {
+    color: black;
     background-color: white;
     position: relative;
     height: 245px;
 }
+
 /* 모달박스안 컨텐츠 */
-.store-image{
+.store-image {
     height: 50%;
     width: 80%;
     max-width: 600px;
-    top:30px;
+    top: 30px;
     position: relative;
-    left:10%;
+    left: 10%;
 
 }
-.store-info{
-    width:80%;
+
+.store-info {
+    width: 80%;
     left: 10%;
-    bottom:0;
+    bottom: 0;
     position: absolute;
-    display:flex;
+    display: flex;
 }
-.store-profile{
+
+.store-profile {
     border-radius: 50%;
     height: 50px;
     width: 50px;
     background-color: cornflowerblue;
 }
-.store-text{
-    flex-grow:1;
-    margin:0;
+
+.store-text {
+    flex-grow: 1;
+    margin: 0;
     left: 5px;
     position: relative;
 }
-.store-text >h3{
+
+.store-text>h3 {
     position: absolute;
-    top:0;
-    margin:0;
+    top: 0;
+    margin: 0;
 
 }
 
-.modal-content-wrap::-webkit-scrollbar{
+.modal-content-wrap::-webkit-scrollbar {
     width: 0;
     height: 0;
 }
-#modalup{
-    position:relative;
-    top:-50%;
-}
-.mapbtn{
-    width:50%;
-    height:50%;
+
+#modalup {
+    position: relative;
+    top: -50%;
 }
 
-.userbtn{
+.mapbtn {
+    width: 50%;
+    height: 50%;
+}
+
+.userbtn {
     width: 100%;
     height: 100%;
 }
+
 /* .cafe_card_filter {
     margin-top: 150px;
     text-align: right;
@@ -322,6 +352,6 @@ html,body{
 /* 여기서부터 chihun code */
 
 
-#nav > div{
-  cursor: pointer;  
+#nav>div {
+    cursor: pointer;
 }
