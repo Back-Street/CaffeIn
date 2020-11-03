@@ -1,4 +1,3 @@
-
 html,
 body {
   margin: 0;
@@ -14,7 +13,6 @@ body {
 }
 
 .container {
-
   border: 1px solid black;
   max-width: 500px;
   margin: 0 auto;
@@ -27,9 +25,9 @@ body {
 }
 
 .cafe_card_filter {
-  margin-top: 100px;
+  margin-top: 10px;
   text-align: right;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .cafe_card_filter>span {
@@ -83,17 +81,19 @@ body {
 
 .cafe_card_content {
   flex: 1;
-  margin-left: 30px;
+  margin-left: 10px;
+  margin-top: -20px;
+  margin-bottom: 30px;
 }
 
 .cafe_card_like {
   padding: 2.5px 7px;
-  font-size: 15px;
+  font-size: 13px;
   color: white;
   background-color: #f37b65;
   border-radius: 20px;
   z-index: 5;
-  margin-top: -20px;
+  margin-top: -95px;
 }
 
 a {
@@ -108,229 +108,13 @@ a:visited {
 .cafe_card_title {
   font-size: 20px;
   font-weight: bold;
+  margin-right: 10px;
 }
 
 .cafe_card_loc,
 .cafe_card_time {
   font-size: 12px;
-}
-
-.detail_header {
-  height: 200px;
-  position: relative;
-}
-
-.detail_header>img {
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-  max-height: 100%;
-  border-radius: 10px;
-  opacity: 0.5;
-}
-
-.detail_header_info_wapper {
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.detail_header_info_wapper>div {
-  margin-right: 10px;
-}
-
-.detail_header_info_wapper>.cafe_card_like {
-  margin-bottom: -20px;
-}
-
-.detail_title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.detail_info_wrapper {
-  padding: 10px;
-}
-
-.detail_info_icon {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background-color: #f37b65;
-  margin-right: 10px;
-}
-
-.detail_info_row {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.detail_info_subtext {
-  font-size: 12px;
-}
-
-.detail_category>p {
-  padding-left: 10px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.detail_catebox_wrapper {
-  display: flex;
-}
-
-.detail_catebox_item {
-  border: #f37b65 1.5px solid;
-  padding: 5px 10px;
-  border-radius: 10px;
-  font-size: 14px;
-  margin-right: 10px;
-}
-
-.detail_story_wrapper {
-  margin-top: 30px;
-}
-
-.detail_story_wrapper>p {
-  padding-left: 10px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.detail_story_item {
-  border-radius: 15px;
-  width: 100px;
-  height: 100px;
-  display: inline-block;
-  margin-right: 7.5px;
-  overflow: hidden;
-}
-
-.detail_story_item img {
-  object-fit: cover;
-  width: 100%;
-  max-height: 100%;
-} */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100vh;
-
-
-}
-
-* {
-  outline: none;
-}
-
-.container {
-  border: 1px solid black;
-  max-width: 500px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  height: 99vh;
-  position: relative;
-}
-
-.cafelist {
-  padding: 0 20px;
-}
-
-.cafe_card_filter {
-  margin-top: 100px;
-  text-align: right;
-  margin-bottom: 15px;
-}
-
-.cafe_card_filter>span {
-  font-size: 12px;
-  color: #707070;
-}
-
-
-.cafe_card_wrapper {
-  width: 100%;
-  height: 80%;
-}
-
-.cafe_card_wrapper>a {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 30px;
-}
-
-.cafe_card_img {
-  width: 100%;
-  height: 150px;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.cafe_card_img>img {
-  width: 100%;
-  object-fit: cover;
-  max-height: 100%;
-}
-
-.cafe_card_content_wrap {
-  padding: 10px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-}
-
-.cafe_card_story {
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  overflow: hidden;
-}
-
-.cafe_card_story>img {
-  object-fit: cover;
-  height: 100%;
-}
-
-.cafe_card_content {
-  flex: 1;
-  margin-left: 30px;
-}
-
-.cafe_card_like>a {
-  padding: 2.5px 7px;
-  font-size: 15px;
-  color: white;
-  background-color: #f37b65;
-  border-radius: 20px;
-  z-index: 5;
-  margin-top: -20px;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-a:visited {
-  color: black;
-}
-
-.cafe_card_title {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.cafe_card_loc,
-.cafe_card_time {
-  font-size: 12px;
+  margin : 5px
 }
 
 .detail_header {
@@ -438,7 +222,6 @@ a:visited {
 
 .search {
   width: 100%;
-
   background-color: white;
   box-shadow: 5px 3px 10px 5px rgba(105, 105, 105, 0.1);
   border-radius: 40px;
@@ -480,9 +263,45 @@ a:visited {
 }
 
 
+<<<<<<< HEAD
 
 
 .list-btn-wrapper >i {
   font-size: 33px;
   color: black;
 }
+=======
+/* ---네브바--- */
+#nav {
+  width: 100%;
+  height: 8%;
+  justify-content: space-around;
+  align-items: center;
+  opacity: 0.8;
+  background-color: rgba(255, 255, 255, 0.911);
+  position: fixed;
+  right:0px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  bottom: 0;
+  z-index: 99;
+  box-shadow: 5px 0px 10px 3px rgba(26, 25, 25, 0.801);
+}
+
+.list-btn-wrapper {
+  size: 30px;
+  font-size: 33px;
+  color: black;
+}
+
+.mapbtn {
+  width: 50%;
+  height: 50%;
+}
+
+.userbtn {
+  width: 100%;
+  height: 100%;
+}
+>>>>>>> bd8639d9b3c50afe484a2769e482967a0ab88af2
