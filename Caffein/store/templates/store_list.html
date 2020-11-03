@@ -10,8 +10,37 @@
 </head>
 
 <body>
- 
   <div class="container cafelist">
+
+    <header>
+      <div id="nav">
+        <a href="{% url 'map' %}">
+
+          <image src="/static/map.png" class="mapbtn"></image>
+
+        </a>
+        <a href="{% url 'store_list' %}">
+
+          <image src="/static/list.png"></image>
+
+        </a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'mypage' %}">
+
+
+          <image src="/static/user2.png" class="userbtn"></image>
+
+        </a>
+        {% else %}
+        <a href="{% url 'login' %}">
+
+
+          <image src="/static/user2.png" class="userbtn"></image>
+
+        </a>
+        {% endif %}
+      </div>
+    </header>
     <form method="POST" action="{% url 'search' %}">
       {%csrf_token%}
       <div class="search">
@@ -30,7 +59,7 @@
         <span>소식순</span>
       </div>
       {% for one_store in all_store %}
-      
+
       <a href="{% url 'store_detail' one_store.id%}">
         <div class="cafe_card_img">
           <img src='{{one_store.image.url}}'>
@@ -49,7 +78,7 @@
             <div class="cafe_card_time">⏰{{one_store.open_time}}<br>
             </div>
           </div>
-         
+
           <div class="cafe_card_like">
             <a href="{% url 'like_toggle' one_store.id %}">
               {% if one_store in user.likes.all %}
@@ -58,41 +87,15 @@
               ♡:{{one_store.like_count}}
               {% endif %}
             </a>
-
           </div>
+
         </div>
       </a>
       {%endfor%}
     </div>
-    
+
   </div>
-  <header>
-    <div id="nav">
-        <div class="map_btn-wrapper">
-            <image src="/static/map.png" class="mapbtn"></image>
-        </div>
-        <a href="{% url 'store_list' %}">
-            <div class="list-btn-wrapper">
-                <i class="fas fa-list-ul"></i>
-            </div>
-        </a>
-        {% if user.is_authenticated %}
-        <a href="{% url 'mypage' %}">
-            <div class="user-btn-wrapper">
 
-                <image src="/static/user 2.png" class="userbtn"></image>
-            </div>
-        </a>
-        {% else %}
-        <a href="{% url 'login' %}">
-            <div class="user-btn-wrapper">
-
-                <image src="/static/user 2.png" class="userbtn"></image>
-            </div>
-        </a>
-        {% endif %}
-    </div>
-  </header>
 </body>
 
 </html>
