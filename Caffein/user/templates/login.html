@@ -11,20 +11,24 @@
 
 <body>
     <div class="container regi_container">
+        <div class="regi_card">
         <div class="regi_logo">
             BACK<br />
             STREET
-        </div>
-        <div class="regi_page">LOGIN</div>
+            <div class="regi_page">LOGIN</div>
 
-        <div class="regi_card">
-            <form action="{% url 'login' %}" method="POST">
+        </div>
+       
+        
+            <form action="{% url 'login' %}" method="POST" class="regi-input">
                 {% csrf_token %}
-                <input type="text" placeholder="아이디 또는 이메일" name="username">
-                <input type="password" placeholder="비밀번호" name="password"><br>
-                <input type="submit" value="로그인">
+                <input type="text" placeholder="아이디 또는 이메일" name="username" id="input-box">
+                <input type="password" placeholder="비밀번호" name="password" id="input-box"><br>
+                <input type="submit" value="로그인" id="input-btn">
             </form>
-            <div><a href="{% url 'choice_registration' %}">회원가입</a></div>
+            <div class="regi-text"><a href="{% url 'choice_registration' %}">
+                아직 회원이 아니신가요?<br>회원가입</a>
+            </div>
         </div>
         <div>{{message}}</div>
 
