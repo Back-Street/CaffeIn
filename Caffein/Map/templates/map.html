@@ -195,6 +195,7 @@
 
 
         window.onload = function () {
+            greetmodal();
             function onClick() {
                 var modal_noclick = document.querySelector('.modal-notclicked')
                 var modal = document.querySelector('.modal-wrap');
@@ -222,6 +223,7 @@
 
                 {% endfor %}
             }
+            
             function offClick() {
                 var modal = document.querySelector('.modal-wrap');
                 var center_btn_move = document.querySelector('.center-btn-wrapper');
@@ -307,18 +309,16 @@
             };
         }
 
-        window.onload = function modalagreet() {
-            var modal_close = document.querySelector(".agreet-close");
-            var modal = document.querySelector(".modal-agreet")
-            var center_btn_move = document.querySelector('.center-btn-wrapper')
-            center_btn_move.style.bottom = '30%';
-            modal_close.addEventListener('click', () => {
-                modal.style.display = "none";
-                center_btn_move.style.bottom = '18%';
-            })
-
-
-        }
+        function greetmodal() {
+                var modal_close = document.querySelector(".agreet-close");
+                var modal = document.querySelector(".modal-agreet")
+                var center_btn_move = document.querySelector('.center-btn-wrapper')
+                center_btn_move.style.bottom = '30%';
+                modal_close.addEventListener('click', () => {
+                    modal.style.display = "none";
+                    center_btn_move.style.bottom = '18%';
+                })
+            };
 
         //모달 사이즈 조정
         // var doc = document,
