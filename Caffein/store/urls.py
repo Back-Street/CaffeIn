@@ -1,5 +1,4 @@
 from django.urls import path
-
 from .views import index,StoreList,StoreDetail,like_toggle,search
 from django.conf.urls.static import static
 from django.conf import settings

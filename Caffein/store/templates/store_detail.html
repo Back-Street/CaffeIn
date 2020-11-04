@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/cafe.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/cafe.css' %}" />
   </head>
   <body>
     <div class="container cafelist">
@@ -34,15 +34,15 @@
         </div>
         <div class="detail_info_row">
           <div class="detail_info_icon"></div>
-          <p class="detail_info_text">COMMENTS</p>
+          <p class="detail_info_text">"{{one_store.Info}}"</p>
         </div>
         <div class="detail_info_row">
           <div class="detail_info_icon"></div>
-          <p class="detail_info_text">MENU</p>
+          <p class="detail_info_text">아메리카노, 디저트류</p>
         </div>
         <div class="detail_info_row">
           <div class="detail_info_icon"></div>
-          <p class="detail_info_text">ANOTHER INFORMATION</p>
+          <p class="detail_info_text">{{one_store.more_info}}</p>
         </div>
       </div>
 

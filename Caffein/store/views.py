@@ -3,7 +3,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.contrib.auth.decorators import login_required
 
-from .models import Store,Menu 
+from .models import Store,Menu
 from user.models import CaffeInUser
 from django.shortcuts import render, redirect,HttpResponseRedirect
 # Create your views here.
@@ -17,7 +17,6 @@ class StoreDetail(DetailView):
     model = Store
     context_object_name = 'one_store'
     template_name = 'store_detail.html'
-
 
 @login_required(login_url='login')
 def like_toggle(request, store_id):
@@ -54,18 +53,18 @@ def search(request):
         return render(request,'search.html')
 
 
-def search(request):
-    context=dict()
-    store_list = Store.objects.all()
-    store = request.POST.get('search',"")
+# def search(request):
+#     context=dict()
+#     store_list = Store.objects.all()
+#     store = request.POST.get('search',"")
 
-    if store:
-        store_list = store_list.filter(name__icontains=store)
-        context['store_list'] = store_list
-        context['search'] = search
-        return render(request,'search.html',context)
-    else:
-        return render(request,'search.html')
+#     if store:
+#         store_list = store_list.filter(name__icontains=store)
+#         context['store_list'] = store_list
+#         context['search'] = search
+#         return render(request,'search.html',context)
+#     else:
+#         return render(request,'search.html')
 
 
 # class PublisherDetail(DetailView):
