@@ -14,7 +14,12 @@
         BACK<br />
         STREET
       </div>
-      <div class="regi_page">회원가입</div>
+      <form method="POST" action="">
+        {% csrf_token %}
+        {{registerform.as_p}}
+        <input type="submit" value="회원가입">
+      </form>
+      <!-- <div class="regi_page">회원가입</div>
 
       {% if type == "owner" %}
       <div class="check_owner_wrapper">
@@ -80,6 +85,6 @@
       <a href="{% url 'complete_regi' %}">
         <button class="regi_submit_btn" type="submit">회원 가입</button>
       </a>
-    </div>
+    </div> -->
   </body>
 </html>

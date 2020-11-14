@@ -6,5 +6,4 @@ urlpatterns=[
     path('complete_regi/',complete_regi, name="complete_regi"),
     path('login/',caffein_login,name="login"),
     path('mypage',mypage,name="mypage")
-
 ]

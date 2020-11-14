@@ -1,13 +1,21 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
 
 
 # Create your views here.
 
 def choice_registration(request):
-    context=dict()
-    return render(request, 'choice_regi.html', context)
-
+    if request.method == 'POST':
+        regiform = UserCreationForm(request.POST)
+        if regiform.is_valid():
+            regiform.save()
+            return redirect('choice_regi')
+        else:
+            return redirect('choice_regi')
+    registerform = UserCreationForm
+    return render(request, 'choice_regi.html', {'registerform' : registerform})
+# registration.html에 form이 있어야함 ~~!
 
 def registration(request):
     context=dict()
