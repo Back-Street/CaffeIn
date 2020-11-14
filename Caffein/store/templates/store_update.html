@@ -1,0 +1,43 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/cafe_update.css' %}" />
+  </head>
+  <body>
+    
+    <form method="post">
+        {% csrf_token %}
+        <div class="container cafe-list">
+          <h3>카페 정보 변경하기</h3>
+          <input type="submit" value="Update" id="submit-btn">
+          <hr>
+        {% for i in form %}
+        {%if i.name == "image" %}
+        <div class="label-text">이미지 변경하기</div>
+        {%elif i.name == "name" %}
+        <div class="label-text">카페 이름</div>
+        {%elif i.name == "address" %}
+        <div class="label-text">카페 주소</div>
+        {%elif i.name == "open_time" %}
+        <div class="label-text">영업 시간</div>
+        {%elif i.name == "Info" %}
+        <div class="label-text">사장님의 한마디!</div>
+        {%elif i.name == "more_info" %}
+        <div class="label-text">추가 정보</div>
+        {% endif %}
+        <div class="label-text">{{i}}</div>
+  
+       
+       
+        {% endfor %}
+      
+    </div>
+    </form>
+
+       
+    </body>
+</html>
