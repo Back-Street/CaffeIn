@@ -1,78 +1,80 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/cafe.css' %}"/>
-  </head>
-  <body>
-    <div class="container cafelist">
-      <header class="detail_header">
-        <img
-          src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODA0MTJfMjI4%2FMDAxNTIzNTA4MzI5Mzk5.Wne5k2zYsO-yFwgwR3ChTBLvHw5-nvrrT4StwxBb0Vog.DTcJPlqEi8DjOMtjNexSo9rL95lJvBN4X3-SGXUhpeYg.JPEG.ajing25%2F20180410_203148.jpg"
-        />
-        <div class="detail_header_info_wapper">
-          <div class="cafe_card_story">
-            <img
-              src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2F20140329_99%2Fjijeey_1396076275434aRIjh_JPEG%2FKakaoTalk_51bb4ff86c79df78.jpg"
-            />
-          </div>
-          <div class="cafe_card_title">{{one_store}}</div>
-          <div class="cafe_card_like">♡10</div>
-        </div>
-      </header>
-      <div class="detail_title">INFORMATION</div>
-      <div class="detail_info_wrapper">
-        <div class="detail_info_row">
-          <div class="detail_info_icon"></div>
-          <p class="detail_info_text">
-            {{one_store.address}}<br />
-            <span class="detail_info_subtext">{{one_store.open_time}}</span>
-          </p>
-        </div>
-        <div class="detail_info_row">
-          <div class="detail_info_icon"></div>
-          <p class="detail_info_text">COMMENTS</p>
-        </div>
-        <div class="detail_info_row">
-          <div class="detail_info_icon"></div>
-          <p class="detail_info_text">MENU</p>
-        </div>
-        <div class="detail_info_row">
-          <div class="detail_info_icon"></div>
-          <p class="detail_info_text">ANOTHER INFORMATION</p>
-        </div>
-      </div>
 
-      <div class="detail_category">
-        <p>CATEGORY</p>
-        <div class="detail_catebox_wrapper">
-          <div class="detail_catebox_item">공부하기 좋은</div>
-          <div class="detail_catebox_item">테라스가 있는</div>
-          <div class="detail_catebox_item">분위기 좋은</div>
-        </div>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/cafe.css' %}" />
+</head>
 
-      <div class="detail_story_wrapper">
-        <p>STORY</p>
-        <div class="detail_story_item">
+<body>
+  <div class="container cafelist">
+    <header class="detail_header">
+      <img
+        src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODA0MTJfMjI4%2FMDAxNTIzNTA4MzI5Mzk5.Wne5k2zYsO-yFwgwR3ChTBLvHw5-nvrrT4StwxBb0Vog.DTcJPlqEi8DjOMtjNexSo9rL95lJvBN4X3-SGXUhpeYg.JPEG.ajing25%2F20180410_203148.jpg" />
+      <div class="detail_header_info_wapper">
+        <div class="cafe_card_story">
           <img
-            src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODA1MTFfMjU4%2FMDAxNTI2MDE3MjY1Nzgy.-vMu-iXbewOfkRSBs5W2Os9tgxcGt6HQbwyLSNS5_ncg.PUklUIOszp1xykNX6rZkYkOXJJ8-pbuv38QK0DZrbCsg.JPEG.always918%2FIMG_4021.jpg"
-          />
+            src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2F20140329_99%2Fjijeey_1396076275434aRIjh_JPEG%2FKakaoTalk_51bb4ff86c79df78.jpg" />
         </div>
-        <div class="detail_story_item">
-          <img
-            src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODA1MTFfMjU4%2FMDAxNTI2MDE3MjY1Nzgy.-vMu-iXbewOfkRSBs5W2Os9tgxcGt6HQbwyLSNS5_ncg.PUklUIOszp1xykNX6rZkYkOXJJ8-pbuv38QK0DZrbCsg.JPEG.always918%2FIMG_4021.jpg"
-          />
-        </div>
-        <div class="detail_story_item">
-          <img
-            src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODA1MTFfMjU4%2FMDAxNTI2MDE3MjY1Nzgy.-vMu-iXbewOfkRSBs5W2Os9tgxcGt6HQbwyLSNS5_ncg.PUklUIOszp1xykNX6rZkYkOXJJ8-pbuv38QK0DZrbCsg.JPEG.always918%2FIMG_4021.jpg"
-          />
-        </div>
+        <div class="cafe_card_title">{{one_store}}</div>
+        <div class="cafe_card_like">♡10</div>
+      </div>
+    </header>
+    <div class="detail_title">INFORMATION</div>
+    <div class="detail_info_wrapper">
+      <div class="detail_info_row">
+        <div class="detail_info_icon"></div>
+        <p class="detail_info_text">
+          {{one_store.address}}<br />
+          <span class="detail_info_subtext">{{one_store.open_time}}</span>
+        </p>
+      </div>
+      <div class="detail_info_row">
+        <div class="detail_info_icon"></div>
+        <p class="detail_info_text">COMMENTS</p>
+      </div>
+      <div class="detail_info_row">
+        <div class="detail_info_icon"></div>
+        <p class="detail_info_text">MENU
+          {% for i in one_store.store_set.all %}
+          {{i.store_menu}}
+          {% endfor %}
+        </p>
+      </div>
+      <div class="detail_info_row">
+        <div class="detail_info_icon"></div>
+        <p class="detail_info_text">ANOTHER INFORMATION</p>
       </div>
     </div>
-  </body>
+
+    <div class="detail_category">
+      <p>CATEGORY</p>
+      <div class="detail_catebox_wrapper">
+        <div class="detail_catebox_item">공부하기 좋은</div>
+        <div class="detail_catebox_item">테라스가 있는</div>
+        <div class="detail_catebox_item">분위기 좋은</div>
+      </div>
+    </div>
+
+    <div class="detail_story_wrapper">
+      <p>STORY</p>
+      <div class="detail_story_item">
+        <img
+          src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODA1MTFfMjU4%2FMDAxNTI2MDE3MjY1Nzgy.-vMu-iXbewOfkRSBs5W2Os9tgxcGt6HQbwyLSNS5_ncg.PUklUIOszp1xykNX6rZkYkOXJJ8-pbuv38QK0DZrbCsg.JPEG.always918%2FIMG_4021.jpg" />
+      </div>
+      <div class="detail_story_item">
+        <img
+          src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODA1MTFfMjU4%2FMDAxNTI2MDE3MjY1Nzgy.-vMu-iXbewOfkRSBs5W2Os9tgxcGt6HQbwyLSNS5_ncg.PUklUIOszp1xykNX6rZkYkOXJJ8-pbuv38QK0DZrbCsg.JPEG.always918%2FIMG_4021.jpg" />
+      </div>
+      <div class="detail_story_item">
+        <img
+          src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODA1MTFfMjU4%2FMDAxNTI2MDE3MjY1Nzgy.-vMu-iXbewOfkRSBs5W2Os9tgxcGt6HQbwyLSNS5_ncg.PUklUIOszp1xykNX6rZkYkOXJJ8-pbuv38QK0DZrbCsg.JPEG.always918%2FIMG_4021.jpg" />
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
