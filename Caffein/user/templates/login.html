@@ -18,8 +18,7 @@
             <div class="regi_page">LOGIN</div>
 
         </div>
-       
-        
+
             <form action="{% url 'login' %}" method="POST" class="regi-input">
                 {% csrf_token %}
                 <input type="text" placeholder="아이디 또는 이메일" name="username" id="input-box">

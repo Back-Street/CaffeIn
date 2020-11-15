@@ -14,77 +14,85 @@
         BACK<br />
         STREET
       </div>
-      <form method="POST" action="">
+      <!-- <form method="POST" action="">
         {% csrf_token %}
         {{registerform.as_p}}
         <input type="submit" value="회원가입">
-      </form>
-      <!-- <div class="regi_page">회원가입</div>
+      </form> -->
+   
+      <div class="regi_page">회원가입</div>
+      <form method="POST" action="{% url 'regi' %}">
+        {% csrf_token %}
+        {% if type == "owner" %}
+        <div class="check_owner_wrapper">
+          <span>사업자 등록증</span>
+          <button>등록하기</button>
+        </div>
+        <p class="check_owner_wrapper_helptext">
+          * 사업자 등록증 등록 후 카페인 프로필 생성까지 최대 7시간이 소요됩니다
+        </p>
+        {% endif %}
 
-      {% if type == "owner" %}
-      <div class="check_owner_wrapper">
-        <span>사업자 등록증</span>
-        <button>등록하기</button>
-      </div>
-      <p class="check_owner_wrapper_helptext">
-        * 사업자 등록증 등록 후 카페인 프로필 생성까지 최대 7시간이 소요됩니다
-      </p>
-      {% endif %}
+        <div class="regi_input_title">정보입력</div>
+        <input
+          class="regi_input_box"
+          placeholder="주소찾기"
+          type="text"
+          name="cafeloca"
+          id=""
+        />
+        <input 
+          class="regi_input_box" 
+          placeholder="이름" 
+          type="text" 
+          name="username"
+        id="" />
 
-      <div class="regi_input_title">정보입력</div>
-      <input
-        class="regi_input_box"
-        placeholder="주소찾기"
-        type="text"
-        name=""
-        id=""
-      />
-      <input class="regi_input_box" placeholder="이름" type="text" name=""
-      id="" />
+        <input
+          class="regi_input_box"
+          placeholder="연락처"
+          type="text"
+          name="user_phone"
+          id=""
+        />
 
-      <input
-        class="regi_input_box"
-        placeholder="연락처"
-        type="text"
-        name=""
-        id=""
-      />
+        <input
+          class="regi_input_box"
+          placeholder="아이디"
+          type="text"
+          name="user_id"
+          id=""
+        />
 
-      <input
-        class="regi_input_box"
-        placeholder="아이디"
-        type="text"
-        name=""
-        id=""
-      />
+        <input
+          class="regi_input_box"
+          placeholder="비밀번호"
+          type="pw"
+          name="password"
+          id=""
+        />
 
-      <input
-        class="regi_input_box"
-        placeholder="비밀번호"
-        type="pw"
-        name=""
-        id=""
-      />
-
-      <input
-        class="regi_input_box"
-        placeholder="비밀번호 재확인"
-        type="pw"
-        name=""
-        id=""
-      />
-      <div class="privacy_title">개인 정보 수집·이용 동의</div>
-      <div class="privacy_content">
-        개인정보 수집 이용의 목적 : 어쩌구저쩌구 수집하려는 개인 정보의 항목 :
-        주소, 이름, 연락처 개인정보의 보유 및 이용 기간 : 회원 탈퇴시 즉시 파기
-      </div>
-      <div class="privacy_btn">
-        <span>동의함</span>
-        <span>동의하지 않음</span>
-      </div>
-      <a href="{% url 'complete_regi' %}">
-        <button class="regi_submit_btn" type="submit">회원 가입</button>
-      </a>
-    </div> -->
+        <!-- <input
+          class="regi_input_box"
+          placeholder="비밀번호 재확인"
+          type="pw"
+          name="password_confirm"
+          id=""
+        /> -->
+        <div class="privacy_title">개인 정보 수집·이용 동의</div>
+        <div class="privacy_content">
+          개인정보 수집 이용의 목적 : 어쩌구저쩌구 수집하려는 개인 정보의 항목 :
+          주소, 이름, 연락처 개인정보의 보유 및 이용 기간 : 회원 탈퇴시 즉시 파기
+        </div>
+        <div class="privacy_btn">
+          <span>동의함</span>
+          <span>동의하지 않음</span>
+        </div>
+        <input type="submit" value="회원가입">
+        <!-- <a href="{% url 'complete_regi' %}">
+          <button class="regi_submit_btn" type="submit">회원 가입</button> -->
+        </a>
+    </form>
+  </div>
   </body>
 </html>
