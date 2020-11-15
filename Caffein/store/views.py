@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.contrib.auth.decorators import login_required
-
+from django.views.generic.edit import UpdateView
+from django.urls import reverse_lazy
 from .models import Store,Menu
 from user.models import CaffeInUser
 from django.shortcuts import render, redirect,HttpResponseRedirect
@@ -17,6 +18,20 @@ class StoreDetail(DetailView):
     model = Store
     context_object_name = 'one_store'
     template_name = 'store_detail.html'
+
+
+class StoreUpdate(UpdateView):
+    model = Store
+    fields = ('image','name','address','open_time','Info','more_info')
+    context_object_name = 'one_store'
+    template_name = 'store_update.html'
+  
+
+    def get_success_url(self):
+        detail_id=self.kwargs['pk']
+        return reverse_lazy('store_detail', kwargs={'pk': detail_id})
+
+
 
 @login_required(login_url='login')
 def like_toggle(request, store_id):
