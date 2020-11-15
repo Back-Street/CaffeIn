@@ -224,3 +224,11 @@ body {
 * {
   text-decoration: none;
 }
+
+#login_fail_message{
+  margin-top: 20px;
+  font-size: 11px;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
