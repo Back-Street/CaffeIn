@@ -23,15 +23,16 @@
       <div class="regi_page">회원가입</div>
       <form method="POST" action="{% url 'regi' %}">
         {% csrf_token %}
-        {% if type == "owner" %}
+        
         <div class="check_owner_wrapper">
           <span>사업자 등록증</span>
-          <button>등록하기</button>
+          <input type="file" name="confirm_cafe">
         </div>
         <p class="check_owner_wrapper_helptext">
           * 사업자 등록증 등록 후 카페인 프로필 생성까지 최대 7시간이 소요됩니다
         </p>
-        {% endif %}
+        <!-- {% if type == "owner" %} -->
+        <!-- {% endif %} -->
 
         <div class="regi_input_title">정보입력</div>
         <input
@@ -92,7 +93,7 @@
         <!-- <a href="{% url 'complete_regi' %}">
           <button class="regi_submit_btn" type="submit">회원 가입</button> -->
         </a>
-    </form>
+      </form>
   </div>
   </body>
 </html>

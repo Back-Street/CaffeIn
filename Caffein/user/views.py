@@ -14,10 +14,10 @@ def registration(request):
     # context=dict()
     if request.method == 'POST':
         # if request.POST['password'] == request.POST['password_confirm']:
-        user = CaffeInUser.objects.create_user(user_id=request.POST['user_id'],username=request.POST['username'],
+        user = CaffeInUser.objects.create_user(user_id=request.POST['user_id'],username=request.POST['username'],confirm_cafe=request.POST['confirm_cafe'],
         user_phone=request.POST['user_phone'],cafeloca=request.POST['cafeloca'],password=request.POST['password'],)
         login(request, user)
-        return redirect('choice_registration')
+        return redirect('login')
     return render(request, 'registration.html')
 
 def complete_regi(request):
