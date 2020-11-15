@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from .models import Store,Menu
 from user.models import CaffeInUser
 from django.shortcuts import render, redirect,HttpResponseRedirect
+from .forms import MenuForm
 # Create your views here.
 
 class StoreList(ListView):
@@ -30,6 +31,8 @@ class StoreUpdate(UpdateView):
     def get_success_url(self):
         detail_id=self.kwargs['pk']
         return reverse_lazy('store_detail', kwargs={'pk': detail_id})
+
+
 
 
 
@@ -66,6 +69,27 @@ def search(request):
         return render(request,'search.html',context)
     else:
         return render(request,'search.html')
+
+
+def update_menu(request,store_id,menu_id):
+    context = dict()
+    
+    one_store = Store.objects.get(pk=store_id)
+    context['one_store'] = one_store
+
+    my_menu = Menu.objects.get(id=menu_id)
+
+    menu_form = MenuForm(instance=my_menu)
+    context['menu_form'] = menu_form
+
+    if request.method=="POST":
+        update_form =  MenuForm(request.POST,instance=my_menu)
+        if update_form.is_valid():
+            update_form.save()
+            return redirect('store_detail',store_id)
+
+  
+    return render(request,'menu_update.html',context)
 
 
 # def search(request):

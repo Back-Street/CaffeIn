@@ -32,6 +32,7 @@ class Store(models.Model):
 
     def __str__(self):
         return self.name
+
 class Menu(models.Model):
     class Meta:
         verbose_name_plural = '메뉴'

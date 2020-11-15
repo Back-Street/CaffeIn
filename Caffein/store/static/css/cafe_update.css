@@ -18,6 +18,9 @@ body {
 
 }
 
+
+
+
 .container {
     /* border: 1px solid black; */
     max-width: 500px;
@@ -37,6 +40,8 @@ body {
     font-weight: bold;
     margin: 10px;
     color: #3a3a3a;
+    display: flex;
+    align-items: center;
 }
 
 
@@ -60,9 +65,7 @@ body {
     padding: 10px;
 }
 
-.label-text>a {
-    color: #f37b65;
-}
+
 
 #id_address {
     width: 80%;
@@ -87,6 +90,7 @@ body {
     margin-left: 20%;
 }
 input[type=submit]{
+    cursor: pointer;
     width: 25%;
     height: 25px;
     display: inline-block;
@@ -101,4 +105,36 @@ input[type=submit]{
 
 h3{
     display: inline-block;
+}
+
+.label-input{
+    
+
+    font-weight: bold;
+    margin: 10px;
+    color: #3a3a3a;
+    align-items: center;
+
+
+}
+
+.label-input>a {
+    
+    color: #f37b65;
+}
+
+/* menu_update 부분 */
+#id_store_menu{
+    width: 80%;
+    height: 15px;
+    margin-top: 10px;
+    border-style: none;
+    border: 1px solid #f37b65;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+#menu-update{
+    margin-left: 145px;
 }

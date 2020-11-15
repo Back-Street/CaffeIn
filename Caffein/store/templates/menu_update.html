@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/cafe.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/cafe_update.css'%}">
   </head>
   <body>
     <div class="container cafelist">
@@ -16,21 +17,8 @@
             <img src="{{one_store.icon.url}}">
           </div>
           <div class="cafe_card_title">{{one_store}}</div>
-          <div class="cafe_card_like">
-            <a id="like_toggle" href="{% url 'like_toggle' one_store.id %}">
-              {% if one_store in user.likes.all %}
-              ♥ {{one_store.like_count}}
-              {% else %}
-              ♡ {{one_store.like_count}}
-              {% endif %}
-            </a>
-          </div>
+         
         </div>
-        {% if user.is_authenticated %}
-        <div class="edit_cafe_detail">
-           <a id = "edit" href="{% url 'store_update' one_store.id %}">edit</a>
-        </div>
-        {% endif %}
       </header>
       <div class="detail_title">INFORMATION</div>
       <div class="detail_info_wrapper">
@@ -54,27 +42,28 @@
             <img class="icon-image" src="/static/메뉴판 하양.png" >
           </div>
           <div class="menu">Popular Menu
-            <img class="arrow" src="/static/arrow.png" >
-          </div>
-          
+                <form method="POST">
+        {% csrf_token %}
+        {%for i in menu_form%}
+        {% if i.name == "가게 메뉴" %}
+        <div class="menu-text"></div>
+        
+        {%endif%}
+        {{i}}
+        {%endfor%}
+        <input id="menu-update" type="submit" value="수정">
+        </form>
         </div>
-        <div class="detail_info_menu">
-        {%for menu in one_store.menu_set.all %}
-        <div class="one_menu">
-          {{menu.store_menu }}
-          <a href="{% url 'update_menu' one_store.id menu.id  %}">
-            <img class="setting" src="/static/setting.png">
-          </a>
-        </div>
-        {% endfor %}
-        </div>
+    </div>
+       
         <div class="detail_info_row">
           <div class="detail_info_icon">
             <img class="icon-image-mark" src="/static/북마크 하양.png" >
           </div>
           <p class="detail_info_text">{{one_store.more_info}}</p>
         </div>
-      </div>
+      
+      
 
      
 
